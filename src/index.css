@@ -6,6 +6,14 @@ body {
   ol, ul {
     padding-left: 30px;
   }
+
+  .history{
+    background-color:aquamarine;
+  }
+
+  .historyCurrent{
+    background-color: rgb(23, 142, 233);
+  }
   
   .board-row:after {
     clear: both;
@@ -30,6 +38,10 @@ body {
     padding: 0;
     text-align: center;
     width: 34px;
+  }
+
+  .squareWinner {
+    background-color: aquamarine;
   }
   
   .square:focus {

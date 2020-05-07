@@ -1,9 +1,10 @@
 import React from 'react';
 
-export function Square({ value, onClick }) {
+export function Square({ value, onClick, winningSquare }) {
+    let squareClass = winningSquare ? "square squareWinner" : "square"
     return (
         <button
-            className="square"
+            className={squareClass}
             onClick={onClick}
         >
             {value}
