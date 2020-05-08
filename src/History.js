@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { whosTurn } from './Game'
 
 export function History({ history, stepNumber, onClick }) {
@@ -17,22 +17,22 @@ export function History({ history, stepNumber, onClick }) {
         }
         return (
             <li key={i}>
-                 <button className={currentclass} onClick={() => onClick(i)}>{whosTurn(index)}({Math.floor(step.moveIndex / 3) + 1}, {(step.moveIndex % 3) + 1})</button>
+                <button className={currentclass} onClick={() => onClick(i)}>{whosTurn(index)}({Math.floor(step.moveIndex / 3) + 1}, {(step.moveIndex % 3) + 1})</button>
             </li>
         );
     });
-
-    if(reverse){
+    if (reverse) {
         moves.reverse()
     }
+
     return (
         <>
-            <button className="history" onClick={()=> setReverse(!reverse)}>/\ or \/</button>
-            <ul>{moves}</ul>
+            <button className="history" onClick={() => setReverse(!reverse)}>/\ or \/</button>
+            <ol reversed={reverse} >{moves}</ol>
         </>
     )
 
-   
+
 
 }
 
