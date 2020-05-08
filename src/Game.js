@@ -50,6 +50,7 @@ export class Game extends React.Component {
                 <Status
                     winner={winner}
                     player={whosTurn(this.state.stepNumber)}
+                    stepNumber={this.state.stepNumber}
                 />
                 <button className="history" onClick={() => this.jumpTo(0)}>RESET</button>
                 <Board
