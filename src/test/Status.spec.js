@@ -22,7 +22,7 @@ describe("Status winner: {Winning player||''}, nextPlayer: {Next player}, isDraw
     test.each`
       params                                                                      | expected
       ${{ winner: "Winning player", nextPlayer: "Next player", isDraw: "false" }} | ${"Winner: Winning player"}
-      ${{ winner: "Winning player", nextPlayer: "Next player", isDraw: "true" }} | ${"Winner: Winning player"}
+      ${{ winner: "Winning player", nextPlayer: "Next player", isDraw: "true" }}  | ${"Winner: Winning player"}
     `("when '$params' should return '$expected'", ({ params, expected }) => {
       act(() => {
         render(<Status {...params} />, container);
@@ -30,24 +30,24 @@ describe("Status winner: {Winning player||''}, nextPlayer: {Next player}, isDraw
       expect(container.textContent).toMatch("Winner: Winning player");
     });
   });
-});
 
-it("renders as draw", () => {
-  act(() => {
-    render(
-      <Status winner={null} nextPlayer={"Next player"} isDraw={true} />,
-      container
-    );
+  it("renders as draw", () => {
+    act(() => {
+      render(
+        <Status winner={null} nextPlayer={"Next player"} isDraw={true} />,
+        container
+      );
+    });
+    expect(container.textContent).toMatch("Draw:(");
   });
-  expect(container.textContent).toMatch("Draw:(");
-});
 
-it("renders with next player", () => {
-  act(() => {
-    render(
-      <Status winner={null} nextPlayer={"Next player"} isDraw={false} />,
-      container
-    );
+  it("renders with next player", () => {
+    act(() => {
+      render(
+        <Status winner={null} nextPlayer={"Next player"} isDraw={false} />,
+        container
+      );
+    });
+    expect(container.textContent).toMatch("Next player: Next player");
   });
-  expect(container.textContent).toMatch("Next player: Next player");
 });
