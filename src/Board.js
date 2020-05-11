@@ -1,48 +1,44 @@
-import React from 'react';
-import { Square } from './Square';
+import React, { useState } from "react";
+import { Square } from "./Square";
 
+export const ROWCOUNT = 3;
+export const COLCOUNT = 3;
 
+export function Board({ squares, onClick, winningLine }) {
+  let i = 0;
 
-export class Board extends React.Component {
+  return <div>{renderRows()}</div>;
 
-    i = 0;
-    static ROWCOUNT = 3
-    static COLCOUNT = 3
-
-    render() {
-        this.i = 0;
-        return (<div>
-            {this.renderRows()}
-        </div>)
+  function renderRows() {
+    const rows = [];
+    let r = 0;
+    for (r = 0; r < ROWCOUNT; ++r) {
+      rows.push(
+        <div key={r} className="board-row">
+          {renderCols()}
+        </div>
+      );
     }
+    return rows;
+  }
 
-    renderRows() {
-        const rows = [];
-        let r = 0;
-        for (r = 0; r < Board.ROWCOUNT; ++r) {
-            rows.push(<div key={r} className="board-row">{this.renderCols()}</div>);
-        }
-        return (rows);
+  function renderCols() {
+    const cols = [];
+    let c = 0;
+    for (c = 0; c < COLCOUNT; ++c && ++i) {
+      cols.push(renderSquare(i));
     }
+    return cols;
+  }
 
-    renderCols() {
-        const cols = [];
-        let c = 0;
-        for (c = 0; c < Board.COLCOUNT; ++c && ++this.i) {
-            cols.push(this.renderSquare(this.i));
-        }
-        return (cols);
-    }
-
-    renderSquare(i) {
-        return (<Square key={i} value={this.props.squares[i]}
-            onClick={() => this.props.onClick(i)}
-            winningSquare={this.props.winningLine.includes(i)} />
-        );
-    }
-
-
+  function renderSquare(i) {
+    return (
+      <Square
+        key={i}
+        value={squares[i]}
+        onClick={() => onClick(i)}
+        winningSquare={winningLine.includes(i)}
+      />
+    );
+  }
 }
-
-
-
