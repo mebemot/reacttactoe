@@ -6,6 +6,9 @@ import { History } from "./History";
 const initHistory = [{ squares: Array(9).fill(null) }];
 
 export function Game() {
+  const rowCount = 3;
+  const colCount = 3;
+
   const [history, setHistory] = useState(initHistory);
   const [stepNumber, setStepNumber] = useState(0);
 
@@ -17,8 +20,9 @@ export function Game() {
       <div className="game-board">
         <Status
           winner={winner}
-          player={whosTurn(stepNumber)}
+          nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
+          isDraw={stepNumber === rowCount * colCount}
         />
         <button className="history" onClick={() => jumpTo(0)}>
           RESET
@@ -27,6 +31,8 @@ export function Game() {
           squares={current.squares}
           onClick={(i) => handleClick(i)}
           winningLine={winningLine}
+          rowCount={rowCount}
+          colCount={colCount}
         />
       </div>
       <div className="game-info">
@@ -34,6 +40,7 @@ export function Game() {
           history={history}
           stepNumber={stepNumber}
           onClick={(stepNumber) => jumpTo(stepNumber)}
+          colCount= {colCount}
         />
       </div>
     </div>

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Square } from "./Square";
 
-export const ROWCOUNT = 3;
-export const COLCOUNT = 3;
-
-export function Board({ squares, onClick, winningLine }) {
+export function Board({ squares, onClick, winningLine, rowCount, colCount }) {
   let i = 0;
 
   return <div>{renderRows()}</div>;
@@ -12,7 +9,7 @@ export function Board({ squares, onClick, winningLine }) {
   function renderRows() {
     const rows = [];
     let r = 0;
-    for (r = 0; r < ROWCOUNT; ++r) {
+    for (r = 0; r < rowCount; ++r) {
       rows.push(
         <div key={r} className="board-row">
           {renderCols()}
@@ -25,7 +22,7 @@ export function Board({ squares, onClick, winningLine }) {
   function renderCols() {
     const cols = [];
     let c = 0;
-    for (c = 0; c < COLCOUNT; ++c && ++i) {
+    for (c = 0; c < colCount; ++c && ++i) {
       cols.push(renderSquare(i));
     }
     return cols;

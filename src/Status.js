@@ -1,14 +1,13 @@
 import React from "react";
-import { ROWCOUNT, COLCOUNT } from "./Board";
 
-export function Status({ winner, player, stepNumber }) {
+export function Status({ winner, nextPlayer, isDraw }) {
   let status;
   if (winner) {
     status = "Winner: " + winner;
-  } else if (stepNumber === ROWCOUNT * COLCOUNT) {
+  } else if (isDraw) {
     status = "Draw:(";
   } else {
-    status = "Next player: " + player;
+    status = "Next player: " + nextPlayer;
   }
   return <div>{status}</div>;
 }
