@@ -25,7 +25,7 @@ export function Game() {
           stepNumber={stepNumber}
           isDraw={stepNumber === rowCount * colCount}
         />
-        <button className="history" onClick={() => jumpTo(0)}>
+        <button className="reset" onClick={() => jumpTo(0)}>
           RESET
         </button>
         <Board
