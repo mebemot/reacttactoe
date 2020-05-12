@@ -1,0 +1,11 @@
+ol, ul {
+    padding-left: 30px;
+  }
+
+  .history{
+    background-color:aquamarine;
+  }
+
+  .historyCurrent{
+    background-color: rgb(23, 142, 233);
+  }

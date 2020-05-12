@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Board } from "./Board";
 import { Status } from "./Status";
 import { History } from "./History";
+import "./Game.css";
 
 const initHistory = [{ squares: Array(9).fill(null) }];
 

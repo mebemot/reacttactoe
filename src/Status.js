@@ -1,4 +1,5 @@
 import React from "react";
+import "./Status.css"
 
 export function Status({ winner, nextPlayer, isDraw }) {
   let status;
