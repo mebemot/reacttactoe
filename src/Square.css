@@ -13,6 +13,10 @@
     width: 34px;
   }
 
+  .square:hover{
+    background-color: aquamarine;
+  }
+
   .squareWinner {
     background-color: aquamarine;
   }
