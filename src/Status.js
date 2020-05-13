@@ -10,5 +10,5 @@ export function Status({ winner, nextPlayer, isDraw }) {
   } else {
     status = "Next player: " + nextPlayer;
   }
-  return <div>{status}</div>;
+  return <div className="status">{status}</div>;
 }

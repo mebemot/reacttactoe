@@ -9,5 +9,19 @@
 
 .reset {
   background-color: aquamarine;
-  border: 1px solid #999;
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+}
+
+@media screen and (max-width: 480px){
+  .game{
+      display: flex;
+      flex-direction: column;
+  }
+  .game-board{
+   width:100vmin; 
+  }
+  .game-info {
+    width:100vmin;
+  }
 }

@@ -10,7 +10,7 @@ export function History({ history, stepNumber, onClick, colCount }) {
     const i = index + 1;
     var currentclass;
     if (stepNumber === i) {
-      currentclass = "historyCurrent";
+      currentclass = "history current";
     } else {
       currentclass = "history";
     }
@@ -29,7 +29,7 @@ export function History({ history, stepNumber, onClick, colCount }) {
 
   return (
     <>
-      <button className="history" onClick={() => setReverse(!reverse)}>
+      <button className="toggle" onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
       <ol reversed={reverse}>{moves}</ol>

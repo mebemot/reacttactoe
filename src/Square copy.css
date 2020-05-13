@@ -1,16 +1,16 @@
 .square {
   background: #fff;
-  border: 0.5vmin solid rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   float: left;
-  font-size: 10vmin;
+  font-size: 24px;
   font-weight: bold;
-  line-height: 1vmin;
-  margin-right: -0.5vmin;
-  margin-top: -0.5vmin;
+  line-height: 10vmin;
+  height: 10vmin;
+  margin-right: -1px;
+  margin-top: -1px;
   padding: 0;
   text-align: center;
   width: 10vmin;
-  height: 10vmin;
 }
 
 .square:hover {
@@ -23,11 +23,4 @@
 
 .square:focus {
   outline: none;
-}
-
-@media screen and (max-width: 480px){
-  .square{
-    width:20vmin;
-    height:20vmin;
-  }
 }

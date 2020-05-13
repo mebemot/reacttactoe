@@ -1,11 +1,18 @@
-ol, ul {
-    padding-left: 30px;
-  }
+ol,
+ul {
+  padding-left: 5vmin;
+  font-size: 3vmin;
+}
 
-  .history{
-    background-color:aquamarine;
-  }
+.toggle,
+.history {
+  background-color: aquamarine;
+  text-align: center;
+  border: 0.5vmin solid #000000;
+  font-size: 3vmin;
+  width:20vmin;
+}
 
-  .historyCurrent{
-    background-color: rgb(23, 142, 233);
-  }
+.current {
+  background-color: rgb(23, 142, 233);
+}
