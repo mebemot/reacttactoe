@@ -2,15 +2,16 @@
   background: #fff;
   border: 0.5vmin solid rgb(0, 0, 0);
   float: left;
-  font-size: 10vmin;
+  width: 20vmin;
+  height: 20vmin;
+  border: 1vmin solid rgb(0, 0, 0);
+  font-size: 20vmin;
   font-weight: bold;
-  line-height: 1vmin;
-  margin-right: -0.5vmin;
-  margin-top: -0.5vmin;
+  line-height: 2vmin;
+  margin-right: -1vmin;
+  margin-top: -1vmin;
   padding: 0;
   text-align: center;
-  width: 10vmin;
-  height: 10vmin;
 }
 
 .square:hover {
@@ -25,9 +26,15 @@
   outline: none;
 }
 
-@media screen and (max-width: 480px){
-  .square{
-    width:20vmin;
-    height:20vmin;
+@media screen and (max-width: 480px) {
+  .square {
+    width: 20vmin;
+    height: 20vmin;
+    border: 1vmin solid rgb(0, 0, 0);
+    font-size: 20vmin;
+    font-weight: bold;
+    line-height: 2vmin;
+    margin-right: -1vmin;
+    margin-top: -1vmin;
   }
 }

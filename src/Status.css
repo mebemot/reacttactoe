@@ -2,3 +2,9 @@
     margin-bottom: 2.5vmin;
     font-size: 3vmin;
   }
+  @media screen and (max-width: 480px) {
+    .status {
+      margin-bottom: 5vmin;
+      font-size: 6vmin;
+    }
+  }

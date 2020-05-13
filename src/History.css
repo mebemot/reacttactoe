@@ -10,9 +10,21 @@ ul {
   text-align: center;
   border: 0.5vmin solid #000000;
   font-size: 3vmin;
-  width:20vmin;
+  width: 20vmin;
 }
 
 .current {
   background-color: rgb(23, 142, 233);
+}
+
+@media screen and (max-width: 480px) {
+  .toggle,
+  .history {
+    border: 1vmin solid #000000;
+    font-size: 6vmin;
+    width: 40vmin;
+  }
+  .ol{
+    font-size: 6vmin;
+  }
 }
