@@ -1,0 +1,40 @@
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.game-board{
+  text-align: center;
+}
+
+.reset {
+  background-color: aquamarine;
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  text-align: center;
+  width: 19.5vmin;
+  margin-bottom: 3vmin;
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px){
+  .game{
+      display: flex;
+      flex-direction: column;
+  }
+  .game-board{
+   width:60vmin; 
+  }
+  .game-info {
+    width:100vmin;
+  }
+  .reset{
+    font-size: 6vmin;
+    width: 39vmin;
+    border-width: 1vmin;
+  }
+}

@@ -1,7 +1,11 @@
+*{
+  box-sizing: border-box;
+}
+
 ol,
 ul {
-  padding-left: 5vmin;
   font-size: 3vmin;
+  padding-left: 5vmin;
 }
 
 .toggle,
@@ -11,6 +15,16 @@ ul {
   border: 0.5vmin solid #000000;
   font-size: 3vmin;
   width: 20vmin;
+}
+.toggle{
+  display: inline-block;
+  background-color: aquamarine;
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  text-align: center;
+  width: 19.5vmin;
+  margin-bottom: 3vmin;
+  margin: 5vmin;
 }
 
 .current {

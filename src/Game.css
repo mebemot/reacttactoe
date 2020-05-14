@@ -1,34 +1,46 @@
-.game {
-  display: flex;
-  flex-direction: row;
+*{
+  box-sizing: border-box;
 }
 
 .game-info {
-  margin-left: 20px;
+  grid-area: info;
+  width: 100%;
+  border: 1vmin solid black;
+}
+.status-box {
+  grid-area: status;
 }
 
+.game-board {
+  grid-area: board;
+}
 .reset {
   background-color: aquamarine;
   border: 0.5vmin solid rgb(0, 0, 0);
   font-size: 3vmin;
+  font-weight: bolder;
   text-align: center;
   width: 19.5vmin;
+  margin-bottom: 2vmin;
+  grid-area: reset;
+  margin: 2vmin;
+}
+.game {
+  display: grid;
+  grid-template-areas:
+  'status reset info'
+  'board board info';
+  grid-template-columns: 36.5vmin 23vmin ;
+  border: 1vmin solid black;
+  width: 100%
+
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
   .game{
-      display: flex;
-      flex-direction: column;
-  }
-  .game-board{
-   width:100vmin; 
-  }
-  .game-info {
-    width:100vmin;
-  }
-  .reset{
-    font-size: 6vmin;
-    width: 39vmin;
-    border-width: 1vmin;
+    grid-template-areas: 
+    'status reset'
+    'board board'
+    'info info';
   }
 }
