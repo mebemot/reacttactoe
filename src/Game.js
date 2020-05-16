@@ -18,18 +18,20 @@ export function Game() {
 
   return (
     <div className="game">
-        <div className="status-box">
+      <div className="status-box">
         <Status
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
           isDraw={stepNumber === rowCount * colCount}
         />
-        </div>
-        <button className="reset" onClick={() => jumpTo(0)}>
-          RESET
-        </button>
-        <div className="game-board">
+      </div>
+      <div className="reset-container">
+      <button className="reset" onClick={() => jumpTo(0)}>
+        RESET
+      </button>
+      </div>
+      <div className="game-board">
         <Board
           squares={current.squares}
           onClick={(i) => handleClick(i)}
@@ -37,15 +39,15 @@ export function Game() {
           rowCount={rowCount}
           colCount={colCount}
         />
-        </div>
+      </div>
       <div className="game-info">
         <History
           history={history}
           stepNumber={stepNumber}
           onClick={(stepNumber) => jumpTo(stepNumber)}
-          colCount= {colCount}
+          colCount={colCount}
         />
-    </div>
+      </div>
     </div>
   );
 

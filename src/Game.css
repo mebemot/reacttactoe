@@ -21,9 +21,10 @@
   font-weight: bolder;
   text-align: center;
   width: 19.5vmin;
-  margin-bottom: 2vmin;
-  grid-area: reset;
   margin: 2vmin;
+}
+.reset-container{
+  grid-area: reset;
 }
 .game {
   display: grid;
@@ -38,9 +39,23 @@
 
 @media screen and (max-width: 480px) {
   .game{
+    display: inline-block;
+    text-align: center;
     grid-template-areas: 
-    'status reset'
-    'board board'
+    'status status'
+    'reset reset'
+    'board board' 
     'info info';
+  }
+  .game-board{
+    display: inline-block;
+  }
+  .status-box{
+    width: 100%;
+    float: inline-block;
+  }
+  .reset-container{
+    width: 100%;
+    float: inline-block;
   }
 }
