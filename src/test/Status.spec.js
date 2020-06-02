@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import { Status } from "../Status";
+import { Status } from "../Tictactoe/Status";
 
 let container = null;
 beforeEach(() => {

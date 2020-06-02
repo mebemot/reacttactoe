@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { whosTurn } from "./Game";
-import "./History.css";
+import { whosTurn } from "./C4";
+import "./C4History.css";
 
-export function History({ history, stepNumber, onClick, colCount }) {
+export function C4History({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
   const [, ...actualMoves] = history;
 

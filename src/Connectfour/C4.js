@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { Board } from "./Board";
-import { Status } from "./Status";
-import { History } from "./History";
-import "./Game.css";
+import { C4Board } from "./C4Board";
+import { C4Status } from "./C4Status";
+import { C4History } from "./C4History";
+import "./C4Game.css";
+import { checkWinner } from "./connectfour";
 
-const initHistory = [{ squares: Array(9).fill(null) }];
+const rowCount = 6;
+const colCount = 7;
+const cellCount = rowCount * colCount;
 
-export function Game() {
-  const rowCount = 3;
-  const colCount = 3;
+const initHistory = [{ squares: Array(cellCount).fill(null), moveIndex: 0 }];
 
+export default function C4() {
   const [history, setHistory] = useState(initHistory);
   const [stepNumber, setStepNumber] = useState(0);
 
   const current = history[stepNumber];
-  const [winner, winningLine] = calculateWinner(current.squares);
+  const [winner, winningLine] = checkWinner(current.moveIndex, current.squares);
 
   return (
     <div className="game">
       <div className="status-box">
-        <Status
+        <C4Status
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
@@ -27,12 +29,12 @@ export function Game() {
         />
       </div>
       <div className="reset-container">
-      <button className="reset" onClick={() => jumpTo(0)}>
-        RESET
-      </button>
+        <button className="reset" onClick={() => jumpTo(0)}>
+          RESET
+        </button>
       </div>
       <div className="game-board">
-        <Board
+        <C4Board
           squares={current.squares}
           onClick={(i) => handleClick(i)}
           winningLine={winningLine}
@@ -41,7 +43,7 @@ export function Game() {
         />
       </div>
       <div className="game-info">
-        <History
+        <C4History
           history={history}
           stepNumber={stepNumber}
           onClick={(stepNumber) => jumpTo(stepNumber)}
@@ -55,7 +57,6 @@ export function Game() {
     const currentHistory = history.slice(0, stepNumber + 1);
     const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
-    const [winner] = calculateWinner(squares);
     if (winner || squares[i]) {
       return;
     }
@@ -74,26 +75,6 @@ export function Game() {
   function jumpTo(step) {
     setStepNumber(step);
   }
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], lines[i]];
-    }
-  }
-  return [null, []];
 }
 
 export function whosTurn(stepNumber) {

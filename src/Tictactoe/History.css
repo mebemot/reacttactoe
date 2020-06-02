@@ -1,0 +1,44 @@
+*{
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  font-size: 3vmin;
+  padding-left: 5vmin;
+}
+
+.toggle,
+.history {
+  background-color: aquamarine;
+  text-align: center;
+  border: 0.5vmin solid #000000;
+  font-size: 3vmin;
+  width: 20vmin;
+}
+.toggle{
+  display: inline-block;
+  background-color: aquamarine;
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  text-align: center;
+  width: 19.5vmin;
+  margin-bottom: 3vmin;
+  margin: 5vmin;
+}
+
+.current {
+  background-color: rgb(23, 142, 233);
+}
+
+@media screen and (max-width: 480px) {
+  .toggle,
+  .history {
+    border: 1vmin solid #000000;
+    font-size: 6vmin;
+    width: 40vmin;
+  }
+  .ol{
+    font-size: 6vmin;
+  }
+}
