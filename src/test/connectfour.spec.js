@@ -5,6 +5,7 @@ import {
   findStart,
   getLine,
   checkLine,
+  dropCounter,
 } from "../Connectfour/connectfour";
 
 const rows = 6;
@@ -84,10 +85,16 @@ describe("checkLine(potentialWinningLine) returns [winningLine] or [null]", () =
       18,
     ]);
   });
+
+  test("checkLine([35, 36, 37, 38, 39, 40, 41]) returns null", () => {
+    const squares = new Array(rows * cols).fill(null);
+    squares[35] = squares[36] = squares[37] = squares[39] = "playerx"; //setting up winning line
+    expect(checkLine([35, 36, 37, 38, 39, 40, 41], squares)).toStrictEqual([]);
+  });
 });
 
 describe("checkWinner(lastClicked, squares) returns [winner,[winningLine]]", () => {
-  test("checkWinner(1, squares) with winning line 0 to 3 returns ['playerx',[0, 1, 2, 3]]", () => {
+  /*  test("checkWinner(1, squares) with winning line 0 to 3 returns ['playerx',[0, 1, 2, 3]]", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[1] = squares[2] = squares[3] = squares[0] = "playerx"; //setting up winning line
     let [player, cells] = checkWinner(1, squares);
@@ -115,4 +122,31 @@ describe("checkWinner(lastClicked, squares) returns [winner,[winningLine]]", () 
     expect(player).toMatch("playerx");
     expect(cells).toStrictEqual([6, 12, 18, 24]);
   });
+  */
+  test("checkWinner(39, squares) with no winner returns null", () => {
+    const squares = new Array(rows * cols).fill(null);
+    squares[35] = squares[36] = squares[37] = squares[39] = "playerx"; //setting up winning line
+    expect(checkWinner(39, squares)).toStrictEqual([null, [null]]);
+  });
 });
+
+/*
+test("dropCouter(0, squares) returns 35, if squares[35] is null", () => {
+  const squares = new Array(rows * cols).fill(null);
+  expect(dropCounter(0, squares)).toStrictEqual(35);
+});
+test("dropCouter(27, squares) returns 41, if squares[41] is null", () => {
+  const squares = new Array(rows * cols).fill(null);
+  expect(dropCounter(27, squares)).toStrictEqual(41);
+});
+test("dropCouter(0, squares) returns 28, if squares[35] is NOT null", () => {
+  const squares = new Array(rows * cols).fill(null);
+  squares[35] = "playerx";
+  expect(dropCounter(0, squares)).toStrictEqual(28);
+});
+test("dropCouter(0, squares) returns false, if squares[0] is NOT null", () => {
+  const squares = new Array(rows * cols).fill(null);
+  squares[0] = "playerx";
+  expect(dropCounter(0, squares)).toStrictEqual(false);
+});
+*/

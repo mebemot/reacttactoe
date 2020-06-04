@@ -3,10 +3,8 @@ import { C4Board } from "./C4Board";
 import { C4Status } from "./C4Status";
 import { C4History } from "./C4History";
 import "./C4Game.css";
-import { checkWinner } from "./connectfour";
+import { checkWinner, rowCount, colCount, dropCounter } from "./connectfour";
 
-const rowCount = 6;
-const colCount = 7;
 const cellCount = rowCount * colCount;
 
 const initHistory = [{ squares: Array(cellCount).fill(null), moveIndex: 0 }];
@@ -57,9 +55,12 @@ export default function C4() {
     const currentHistory = history.slice(0, stepNumber + 1);
     const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
-    if (winner || squares[i]) {
+    i = dropCounter(i, squares);
+    console.log("i = " + i);
+    if (winner || i === false) {
       return;
     }
+
     squares[i] = whosTurn(stepNumber);
 
     const newHistory = currentHistory.concat([

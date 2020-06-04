@@ -1,6 +1,6 @@
-const colCount = 7;
-const rowCount = 6;
-const winningLineLength = 4;
+export const colCount = 7;
+export const rowCount = 6;
+export const winningLineLength = 4;
 export function checkWinner(lastClicked, squares) {
   let winningLineCombos = [
     { rowStep: 0, colStep: 1 },
@@ -62,16 +62,22 @@ export function checkLine(potentialWinner, squares) {
   for (let i = 0; i < potentialWinner.length; ++i) {
     if (winningLine.length === 0 && squares[potentialWinner[i]]) {
       winningLine.push(potentialWinner[i]);
+      console.log(`winningLine when length === 0 = ${winningLine}`);
     } else if (squares[potentialWinner[i]] === squares[winningLine[0]]) {
       winningLine.push(potentialWinner[i]);
+      console.log(`winningLine when potentialWinner matches = ${winningLine}`);
     } else if (
       winningLine.length < winningLineLength &&
-      squares[potentialWinner[i]]
+      squares[potentialWinner[i]] != squares[winningLine[0]]
     ) {
       winningLine = [];
-      winningLine.push(potentialWinner[i]);
+      if (!potentialWinner[i]) {
+        winningLine.push(potentialWinner[i]);
+      }
+      console.log(`winningLine after wipe = ${winningLine}`);
     }
     if (winningLine.length >= winningLineLength) {
+      console.log(`winningLine when returned= ${winningLine}`);
       return winningLine;
     }
   }
@@ -80,4 +86,26 @@ export function checkLine(potentialWinner, squares) {
 
 export function isInGrid(rowPos, colPos) {
   return rowPos < rowCount && rowPos >= 0 && colPos < colCount && colPos >= 0;
+}
+
+export function dropCounter(index, squares) {
+  let [currentRow, currentCol] = indexToCoords(index);
+  let dropRow = 0;
+  console.log("dropCounter has been called");
+  //return false if current column is full
+  if (squares[coordsToIndex(dropRow, currentCol)]) {
+    console.log("dropCounter returned false");
+    return false;
+  }
+  //drop down column until find counter or bottom of grid
+  while (
+    dropRow < rowCount &&
+    squares[coordsToIndex(dropRow, currentCol)] === null
+  ) {
+    ++dropRow;
+  }
+  //adjusts for increment on exiting for loop
+  --dropRow;
+
+  return coordsToIndex(dropRow, currentCol);
 }
