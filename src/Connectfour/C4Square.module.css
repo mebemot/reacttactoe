@@ -1,0 +1,28 @@
+.square {
+  display: inline;
+  border-radius: 50%;
+  background-color: white;
+  border: lightseagreen solid;
+  margin: 0.5vmin;
+  text-align: center;
+}
+.Red {
+  background-color: lightcoral;
+}
+
+.Yellow {
+  background-color: rgb(228, 201, 90);
+}
+
+.square:hover {
+  border: dashed 0.5vmin lightseagreen;
+}
+
+.winner {
+  border: dashed 0.5vmin;
+}
+
+.square:focus {
+  outline: none;
+}
+

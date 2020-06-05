@@ -1,17 +1,17 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-.game-info {
+.gameinfo {
   grid-area: info;
   width: 100%;
   border: 1vmin solid black;
 }
-.status-box {
+.statusbox {
   grid-area: status;
 }
 
-.game-board {
+.gameboard {
   grid-area: board;
 }
 .reset {
@@ -23,38 +23,37 @@
   width: 19.5vmin;
   margin: 2vmin;
 }
-.reset-container{
+.resetcontainer {
   grid-area: reset;
 }
-.game {
+.Game {
   display: grid;
   grid-template-areas:
-  'status reset info'
-  'board board info';
-  grid-template-columns: 36.5vmin 23vmin ;
+    "status reset info"
+    "board board info";
+  grid-template-columns: 36.5vmin 23vmin;
   border: 1vmin solid black;
-  width: 100%
-
+  width: 100%;
 }
 
 @media screen and (max-width: 480px) {
-  .game{
+  .Game {
     display: inline-block;
     text-align: center;
-    grid-template-areas: 
-    'status status'
-    'reset reset'
-    'board board' 
-    'info info';
+    grid-template-areas:
+      "status status"
+      "reset reset"
+      "board board"
+      "info info";
   }
-  .game-board{
+  .gameboard {
     display: inline-block;
   }
-  .status-box{
+  .statusbox {
     width: 100%;
     float: inline-block;
   }
-  .reset-container{
+  .resetcontainer {
     width: 100%;
     float: inline-block;
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./C4Status.css"
+import styling from "./C4Status.module.css";
 
 export function C4Status({ winner, nextPlayer, isDraw }) {
   let status;
@@ -10,5 +10,5 @@ export function C4Status({ winner, nextPlayer, isDraw }) {
   } else {
     status = "Next player: " + nextPlayer;
   }
-  return <div className="status">{status}</div>;
+  return <div className={styling.status}>{status}</div>;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { whosTurn } from "./C4";
-import "./C4History.css";
+import styling from "./C4History.module.css";
 
 export function C4History({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
@@ -10,9 +10,9 @@ export function C4History({ history, stepNumber, onClick, colCount }) {
     const i = index + 1;
     var currentclass;
     if (stepNumber === i) {
-      currentclass = "history current";
+      currentclass = `${styling.history} ${styling.current}`;
     } else {
-      currentclass = "history";
+      currentclass = styling.history;
     }
     return (
       <li key={i}>
@@ -29,7 +29,7 @@ export function C4History({ history, stepNumber, onClick, colCount }) {
 
   return (
     <>
-      <button className="toggle" onClick={() => setReverse(!reverse)}>
+      <button className={styling.toggle} onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
       <ol reversed={reverse}>{moves}</ol>

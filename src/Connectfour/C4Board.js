@@ -2,7 +2,7 @@ import React from "react";
 import { C4Square } from "./C4Square";
 import styling from "./C4Board.module.css";
 
-export function C4Board({ squares, onClick, winningLine, rowCount, colCount }) {
+export function C4Board({ squares, onClick, winningLine, rowCount, colCount}) {
   return <div className={styling.Board}>{renderSquares()}</div>;
 
   function renderSquares() {
@@ -18,7 +18,7 @@ export function C4Board({ squares, onClick, winningLine, rowCount, colCount }) {
     return (
       <C4Square
         key={i}
-        value={squares[i]}
+        player={squares[i]}
         onClick={() => onClick(i)}
         winningSquare={winningLine.includes(i)}
       />

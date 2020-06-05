@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { C4Board } from "./C4Board";
 import { C4Status } from "./C4Status";
 import { C4History } from "./C4History";
-import "./C4Game.css";
+import styling from "./C4Game.module.css";
 import { checkWinner, rowCount, colCount, dropCounter } from "./connectfour";
 
 const cellCount = rowCount * colCount;
@@ -17,8 +17,8 @@ export default function C4() {
   const [winner, winningLine] = checkWinner(current.moveIndex, current.squares);
 
   return (
-    <div className="game">
-      <div className="status-box">
+    <div className={styling.Game}>
+      <div className={styling.statusbox}>
         <C4Status
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
@@ -26,12 +26,12 @@ export default function C4() {
           isDraw={stepNumber === rowCount * colCount}
         />
       </div>
-      <div className="reset-container">
-        <button className="reset" onClick={() => jumpTo(0)}>
+      <div className={styling.resetcontainer}>
+        <button className={styling.reset} onClick={() => jumpTo(0)}>
           RESET
         </button>
       </div>
-      <div className="game-board">
+      <div className={styling.gameboard}>
         <C4Board
           squares={current.squares}
           onClick={(i) => handleClick(i)}
@@ -40,7 +40,7 @@ export default function C4() {
           colCount={colCount}
         />
       </div>
-      <div className="game-info">
+      <div className={styling.gameinfo}>
         <C4History
           history={history}
           stepNumber={stepNumber}
@@ -56,12 +56,11 @@ export default function C4() {
     const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
     i = dropCounter(i, squares);
-    console.log("i = " + i);
     if (winner || i === false) {
       return;
     }
 
-    squares[i] = whosTurn(stepNumber);
+    squares[i]= whosTurn(stepNumber);
 
     const newHistory = currentHistory.concat([
       {
@@ -79,6 +78,6 @@ export default function C4() {
 }
 
 export function whosTurn(stepNumber) {
-  let player = stepNumber % 2 === 0 ? "X" : "O";
+  let player = stepNumber % 2 === 0 ? "Red" : "Yellow";
   return player;
 }
