@@ -1,9 +1,9 @@
 import React from "react";
 import { ConnectfourSquare } from "./ConnectfourSquare";
-import styling from "./C4Board.module.css";
+import styling from "./ConnectfourBoard.module.css";
 
 export function ConnectfourBoard({ squares, onClick, winningLine, rowCount, colCount}) {
-  return <div className={styling.Board}>{renderSquares()}</div>;
+  return <div className={styling.board}>{renderSquares()}</div>;
 
   function renderSquares() {
     const cells = [];

@@ -2,17 +2,17 @@ import React from "react";
 import "./GamesApp.css";
 import { Link } from "react-router-dom";
 
-function GamesNav() {
+export default function GamesNav() {
   const NavStyle = {
     color: "black",
   };
   return (
-    <nav className="Nav">
+    <nav className="nav">
       <div className="drop">
         <Link style={NavStyle} to="/">
-          <button className="drop-button">Games</button>
+          <button className="dropButton">Games</button>
         </Link>
-        <div className="drop-content">
+        <div className="dropContent">
           <Link style={NavStyle} to="/tictactoe">
             <li className="link">Tictactoe</li>
           </Link>
@@ -25,4 +25,3 @@ function GamesNav() {
   );
 }
 
-export default GamesNav;

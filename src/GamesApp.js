@@ -2,8 +2,8 @@ import React from "react";
 import "./GamesApp.css";
 import GamesHome from "./GamesHome";
 import GamesNav from "./GamesNav";
-import TictactoeGame from "./Tictactoe/TictactoeGame";
-import ConnectfourGame from "./Connectfour/ConnectfourGame";
+import TictactoeGame from "./tictactoe/TictactoeGame";
+import ConnectfourGame from "./connectfour/ConnectfourGame";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //export const BasketContext = React.createContext({
@@ -15,7 +15,7 @@ export default function GamesApp() {
   //  const [basketItems, setBasketItems] = useState([]);
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <GamesNav />
 
         <Switch>

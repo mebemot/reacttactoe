@@ -8,15 +8,15 @@ export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
 
   const moves = actualMoves.map((step, index) => {
     const i = index + 1;
-    var currentclass;
+    var currentClass;
     if (stepNumber === i) {
-      currentclass = "history current";
+      currentClass = "history current";
     } else {
-      currentclass = "history";
+      currentClass = "history";
     }
     return (
       <li key={i}>
-        <button className={currentclass} onClick={() => onClick(i)}>
+        <button className={currentClass} onClick={() => onClick(i)}>
           {whosTurn(index)}({Math.floor(step.moveIndex / colCount) + 1},{" "}
           {(step.moveIndex % colCount) + 1})
         </button>

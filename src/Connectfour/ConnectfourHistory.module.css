@@ -9,7 +9,7 @@ ul {
 
 .history,
 .toggle,
-.togglereversed {
+.toggleReversed {
   background-color: aquamarine;
   border: 1vmin solid rgb(0, 0, 0);
   font-size: 6vmin;
@@ -26,11 +26,11 @@ ul {
 
 .history:focus,
 .toggle:focus,
-.togglereversed:focus {
+.toggleReversed:focus {
   outline: none;
 }
 
-.togglereversed,
+.toggleReversed,
 .current {
   background-color: rgb(23, 142, 233);
 }

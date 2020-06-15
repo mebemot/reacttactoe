@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { whosTurn } from "./ConnectfourGame";
-import styling from "./C4History.module.css";
+import styling from "./ConnectfourHistory.module.css";
 
 export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
@@ -9,15 +9,15 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
 
   const moves = actualMoves.map((step, index) => {
     const i = index + 1;
-    var currentclass;
+    var currentClass;
     if (stepNumber === i) {
-      currentclass = `${styling.history} ${styling.current}`;
+      currentClass = `${styling.history} ${styling.current}`;
     } else {
-      currentclass = styling.history;
+      currentClass = styling.history;
     }
     return (
       <li key={i}>
-        <button className={currentclass} onClick={() => onClick(i)}>
+        <button className={currentClass} onClick={() => onClick(i)}>
           {whosTurn(index)}({Math.floor(step.moveIndex / colCount) + 1},{" "}
           {(step.moveIndex % colCount) + 1})
         </button>
@@ -26,7 +26,7 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
   });
   if (reverse) {
     moves.reverse();
-    toggle = "togglereversed";
+    toggle = "toggleReversed";
   }
 
   return (

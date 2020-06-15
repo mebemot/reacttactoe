@@ -3,7 +3,7 @@ import { TictactoeSquare } from "./TictactoeSquare";
 import "./Board.css";
 
 export function TictactoeBoard({ squares, onClick, winningLine, rowCount, colCount }) {
-  return <div className="Board">{renderSquares()}</div>;
+  return <div className="board">{renderSquares()}</div>;
 
   function renderSquares() {
     const cells = [];

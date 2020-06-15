@@ -4,24 +4,24 @@
   margin-bottom: 1vmin;
 }
 
-.statusbox {
+.statusBox {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto;
 }
 
-.Red,
-.Yellow {
+.red,
+.yellow {
   width: 7.5vmin;
   height: 7.5vmin;
   border-radius: 50%;
   border: black solid;
 }
 
-.Red {
+.red {
   background-color: lightcoral;
 }
 
-.Yellow {
+.yellow {
   background-color: rgb(228, 201, 90);
 }

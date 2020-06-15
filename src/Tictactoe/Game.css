@@ -2,16 +2,16 @@
   box-sizing: border-box;
 }
 
-.game-info {
+.gameInfo {
   grid-area: info;
   width: 100%;
   border: 1vmin solid black;
 }
-.status-box {
+.statusBox {
   grid-area: status;
 }
 
-.game-board {
+.gameBoard {
   grid-area: board;
 }
 .reset {
@@ -23,7 +23,7 @@
   width: 19.5vmin;
   margin: 2vmin;
 }
-.reset-container{
+.resetContainer{
   grid-area: reset;
 }
 .game {
@@ -47,14 +47,14 @@
     'board board' 
     'info info';
   }
-  .game-board{
+  .gameBoard{
     display: inline-block;
   }
-  .status-box{
+  .statusBox{
     width: 100%;
     float: inline-block;
   }
-  .reset-container{
+  .resetContainer{
     width: 100%;
     float: inline-block;
   }

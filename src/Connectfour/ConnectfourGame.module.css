@@ -2,16 +2,16 @@
   box-sizing: border-box;
 }
 
-.gameinfo {
+.gameInfo {
   grid-area: info;
   width: 100%;
   /*  border: 1vmin solid black;*/
 }
-.statusbox {
+.statusBox {
   grid-area: status;
 }
 
-.gameboard {
+.gameBoard {
   grid-area: board;
 }
 .reset {
@@ -29,7 +29,7 @@
   background-color: rgb(23, 142, 233);
 }
 
-.resetcontainer {
+.resetContainer {
   grid-area: reset;
 }
 .Game {
@@ -52,14 +52,14 @@
       "board board"
       "info info";
   }
-  .gameboard {
+  .gameBoard {
     display: inline-block;
   }
-  .statusbox {
+  .statusBox {
     width: 100%;
     float: inline-block;
   }
-  .resetcontainer {
+  .resetContainer {
     width: 100%;
     float: inline-block;
   }

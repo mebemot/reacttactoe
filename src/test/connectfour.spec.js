@@ -6,7 +6,7 @@ import {
   getLine,
   checkLine,
   dropCounter,
-} from "../Connectfour/ConnectfourRules";
+} from "../connectfour/ConnectfourRules";
 
 const rows = 6;
 const cols = 7;

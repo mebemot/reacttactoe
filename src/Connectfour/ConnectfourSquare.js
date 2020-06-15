@@ -1,5 +1,5 @@
 import React from "react";
-import styling from "./C4Square.module.css";
+import styling from "./ConnectfourSquare.module.css";
 
 export function ConnectfourSquare({ player, onClick, winningSquare }) {
   let squareClass = winningSquare

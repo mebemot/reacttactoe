@@ -1,9 +1,9 @@
 import React from "react";
 import "./GamesApp.css";
 
-function GamesHome() {
+export default function GamesHome() {
   return (
-    <div className="Home">
+    <div>
       <div className="cards">
         <article className="card">
           <header>
@@ -28,4 +28,3 @@ function GamesHome() {
   );
 }
 
-export default GamesHome;

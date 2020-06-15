@@ -18,7 +18,7 @@ export default function TictactoeGame() {
 
   return (
     <div className="game">
-      <div className="status-box">
+      <div className="statusBox">
         <TictactoeStatus
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
@@ -26,12 +26,12 @@ export default function TictactoeGame() {
           isDraw={stepNumber === rowCount * colCount}
         />
       </div>
-      <div className="reset-container">
+      <div className="resetContainer">
       <button className="reset" onClick={() => jumpTo(0)}>
         RESET
       </button>
       </div>
-      <div className="game-board">
+      <div className="gameBoard">
         <TictactoeBoard
           squares={current.squares}
           onClick={(i) => handleClick(i)}
@@ -40,7 +40,7 @@ export default function TictactoeGame() {
           colCount={colCount}
         />
       </div>
-      <div className="game-info">
+      <div className="gameInfo">
         <TictactoeHistory
           history={history}
           stepNumber={stepNumber}

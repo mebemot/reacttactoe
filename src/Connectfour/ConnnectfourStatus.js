@@ -1,5 +1,5 @@
 import React from "react";
-import styling from "./C4Status.module.css";
+import styling from "./ConnectfourStatus.module.css";
 
 export function ConnectfourStatus({ winner, nextPlayer, isDraw }) {
   let status;
@@ -16,7 +16,7 @@ export function ConnectfourStatus({ winner, nextPlayer, isDraw }) {
   }
 
   return (
-    <div className={styling.statusbox}>
+    <div className={styling.statusBox}>
       <div>{status}</div>
       <div className={styling[counterDisplayed]}></div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ConnectfourBoard } from "./ConnectfourBoard";
 import { ConnectfourStatus } from "./ConnnectfourStatus";
 import { ConnectfourHistory } from "./ConnectfourHistory";
-import styling from "./C4Game.module.css";
+import styling from "./ConnectfourGame.module.css";
 import { checkWinner, rowCount, colCount, dropCounter } from "./ConnectfourRules";
 
 const cellCount = rowCount * colCount;
@@ -20,8 +20,8 @@ export default function ConnectfourGame() {
     whosTurn(stepNumber-1) // whosTurn(stepNumber) determines who plays next so need to adjust
   );
   return (
-    <div className={styling.Game}>
-      <div className={styling.statusbox}>
+    <div className={styling.game}>
+      <div className={styling.statusBox}>
         <ConnectfourStatus
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
@@ -29,12 +29,12 @@ export default function ConnectfourGame() {
           isDraw={stepNumber === rowCount * colCount}
         />
       </div>
-      <div className={styling.resetcontainer}>
+      <div className={styling.resetContainer}>
         <button className={styling.reset} onClick={() => jumpTo(0)}>
           RESET
         </button>
       </div>
-      <div className={styling.gameboard}>
+      <div className={styling.gameBoard}>
         <ConnectfourBoard
           squares={current.squares}
           onClick={(i) => handleClick(i)}
@@ -43,7 +43,7 @@ export default function ConnectfourGame() {
           colCount={colCount}
         />
       </div>
-      <div className={styling.gameinfo}>
+      <div className={styling.gameInfo}>
         <ConnectfourHistory
           history={history}
           stepNumber={stepNumber}
@@ -81,6 +81,6 @@ export default function ConnectfourGame() {
 }
 
 export function whosTurn(stepNumber) {
-  let player = stepNumber % 2 === 0 ? "Red" : "Yellow";
+  let player = stepNumber % 2 === 0 ? "red" : "yellow";
   return player;
 }
