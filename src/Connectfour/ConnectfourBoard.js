@@ -1,8 +1,8 @@
 import React from "react";
-import { C4Square } from "./C4Square";
+import { ConnectfourSquare } from "./ConnectfourSquare";
 import styling from "./C4Board.module.css";
 
-export function C4Board({ squares, onClick, winningLine, rowCount, colCount}) {
+export function ConnectfourBoard({ squares, onClick, winningLine, rowCount, colCount}) {
   return <div className={styling.Board}>{renderSquares()}</div>;
 
   function renderSquares() {
@@ -16,7 +16,7 @@ export function C4Board({ squares, onClick, winningLine, rowCount, colCount}) {
 
   function renderSquare(i) {
     return (
-      <C4Square
+      <ConnectfourSquare
         key={i}
         player={squares[i]}
         onClick={() => onClick(i)}

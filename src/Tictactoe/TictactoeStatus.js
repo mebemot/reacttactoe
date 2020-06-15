@@ -1,7 +1,7 @@
 import React from "react";
-import styling from "./C4Status.module.css";
+import "./Status.css"
 
-export function C4Status({ winner, nextPlayer, isDraw }) {
+export function TictactoeStatus({ winner, nextPlayer, isDraw }) {
   let status;
   if (winner) {
     status = "Winner: " + winner;
@@ -10,5 +10,5 @@ export function C4Status({ winner, nextPlayer, isDraw }) {
   } else {
     status = "Next player: " + nextPlayer;
   }
-  return <div className={styling.status}>{status}</div>;
+  return <div className="status">{status}</div>;
 }

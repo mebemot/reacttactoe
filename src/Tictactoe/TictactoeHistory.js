@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { whosTurn } from "./Tictactoe";
+import { whosTurn } from "./TictactoeGame";
 import "./History.css";
 
-export function History({ history, stepNumber, onClick, colCount }) {
+export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
   const [, ...actualMoves] = history;
 

@@ -1,7 +1,7 @@
 export const colCount = 7;
 export const rowCount = 6;
 export const winningLineLength = 4;
-export function checkWinner(lastClicked, squares) {
+export function checkWinner(lastClicked, squares, player) {
   let winningLineCombos = [
     { rowStep: 0, colStep: 1 },
     { rowStep: 1, colStep: 0 },
@@ -14,7 +14,7 @@ export function checkWinner(lastClicked, squares) {
 
     const potentialWinner = getLine(rowPos, colPos, rowStep, colStep);
 
-    const winningLine = checkLine(potentialWinner, squares);
+    const winningLine = checkLine(potentialWinner, squares, player);
 
     if (winningLine.length >= winningLineLength) {
       return [squares[lastClicked], winningLine];
@@ -56,32 +56,17 @@ export function getLine(rowPos, colPos, rowStep, colStep) {
   return potentialWinner;
 }
 
-export function checkLine(potentialWinner, squares) {
-  var winningLine = [];
-
-  for (let i = 0; i < potentialWinner.length; ++i) {
-    if (winningLine.length === 0 && squares[potentialWinner[i]]) {
-      winningLine.push(potentialWinner[i]);
-      console.log(`winningLine when length === 0 = ${winningLine}`);
-    } else if (squares[potentialWinner[i]] === squares[winningLine[0]]) {
-      winningLine.push(potentialWinner[i]);
-      console.log(`winningLine when potentialWinner matches = ${winningLine}`);
-    } else if (
-      winningLine.length < winningLineLength &&
-      squares[potentialWinner[i]] != squares[winningLine[0]]
-    ) {
-      winningLine = [];
-      if (!potentialWinner[i]) {
-        winningLine.push(potentialWinner[i]);
-      }
-      console.log(`winningLine after wipe = ${winningLine}`);
+export function checkLine(potentialWinner, squares, player) {
+  const reducer = (accumulator, currentValue) => {
+    if (squares[currentValue] === player) {
+      accumulator.push(currentValue);
+    } else if (accumulator.length < winningLineLength) {
+      accumulator = [];
     }
-    if (winningLine.length >= winningLineLength) {
-      console.log(`winningLine when returned= ${winningLine}`);
-      return winningLine;
-    }
-  }
-  return [];
+    return accumulator;
+  };
+  var winningLine = potentialWinner.reduce(reducer, []);
+   return winningLine;
 }
 
 export function isInGrid(rowPos, colPos) {
@@ -91,10 +76,8 @@ export function isInGrid(rowPos, colPos) {
 export function dropCounter(index, squares) {
   let [currentRow, currentCol] = indexToCoords(index);
   let dropRow = 0;
-  console.log("dropCounter has been called");
   //return false if current column is full
   if (squares[coordsToIndex(dropRow, currentCol)]) {
-    console.log("dropCounter returned false");
     return false;
   }
   //drop down column until find counter or bottom of grid

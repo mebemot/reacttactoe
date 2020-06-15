@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import { Status } from "../Tictactoe/Status";
+import { TictactoeStatus } from "../Tictactoe/TictactoeStatus";
 
 let container = null;
 beforeEach(() => {
@@ -25,7 +25,7 @@ describe("Status winner: {Winning player||''}, nextPlayer: {Next player}, isDraw
       ${{ winner: "Winning player", nextPlayer: "Next player", isDraw: "true" }}  | ${"Winner: Winning player"}
     `("when '$params' should return '$expected'", ({ params, expected }) => {
       act(() => {
-        render(<Status {...params} />, container);
+        render(<TictactoeStatus {...params} />, container);
       });
       expect(container.textContent).toMatch("Winner: Winning player");
     });
@@ -34,7 +34,7 @@ describe("Status winner: {Winning player||''}, nextPlayer: {Next player}, isDraw
   it("renders as draw", () => {
     act(() => {
       render(
-        <Status winner={null} nextPlayer={"Next player"} isDraw={true} />,
+        <TictactoeStatus winner={null} nextPlayer={"Next player"} isDraw={true} />,
         container
       );
     });
@@ -44,7 +44,7 @@ describe("Status winner: {Winning player||''}, nextPlayer: {Next player}, isDraw
   it("renders with next player", () => {
     act(() => {
       render(
-        <Status winner={null} nextPlayer={"Next player"} isDraw={false} />,
+        <TictactoeStatus winner={null} nextPlayer={"Next player"} isDraw={false} />,
         container
       );
     });

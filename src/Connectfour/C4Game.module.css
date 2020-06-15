@@ -5,7 +5,7 @@
 .gameinfo {
   grid-area: info;
   width: 100%;
-  border: 1vmin solid black;
+  /*  border: 1vmin solid black;*/
 }
 .statusbox {
   grid-area: status;
@@ -23,6 +23,12 @@
   width: 19.5vmin;
   margin: 2vmin;
 }
+
+.reset:focus {
+  outline: none;
+  background-color: rgb(23, 142, 233);
+}
+
 .resetcontainer {
   grid-area: reset;
 }
@@ -32,7 +38,7 @@
     "status reset info"
     "board board info";
   grid-template-columns: 36.5vmin 23vmin;
-  border: 1vmin solid black;
+  /* border: 1vmin solid black;*/
   width: 100%;
 }
 

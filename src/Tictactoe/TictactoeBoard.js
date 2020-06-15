@@ -1,8 +1,8 @@
 import React from "react";
-import { Square } from "./Square";
+import { TictactoeSquare } from "./TictactoeSquare";
 import "./Board.css";
 
-export function Board({ squares, onClick, winningLine, rowCount, colCount }) {
+export function TictactoeBoard({ squares, onClick, winningLine, rowCount, colCount }) {
   return <div className="Board">{renderSquares()}</div>;
 
   function renderSquares() {
@@ -16,7 +16,7 @@ export function Board({ squares, onClick, winningLine, rowCount, colCount }) {
 
   function renderSquare(i) {
     return (
-      <Square
+      <TictactoeSquare
         key={i}
         value={squares[i]}
         onClick={() => onClick(i)}

@@ -1,38 +1,41 @@
 import React, { useState } from "react";
-import { Board } from "./Board";
-import { Status } from "./Status";
-import { History } from "./History";
-import "./Game.css";
+import { ConnectfourBoard } from "./ConnectfourBoard";
+import { ConnectfourStatus } from "./ConnnectfourStatus";
+import { ConnectfourHistory } from "./ConnectfourHistory";
+import styling from "./C4Game.module.css";
+import { checkWinner, rowCount, colCount, dropCounter } from "./ConnectfourRules";
 
-const initHistory = [{ squares: Array(9).fill(null) }];
+const cellCount = rowCount * colCount;
 
-export default function Tictactoe() {
-  const rowCount = 3;
-  const colCount = 3;
+const initHistory = [{ squares: Array(cellCount).fill(null), moveIndex: 0 }];
 
+export default function ConnectfourGame() {
   const [history, setHistory] = useState(initHistory);
   const [stepNumber, setStepNumber] = useState(0);
 
   const current = history[stepNumber];
-  const [winner, winningLine] = calculateWinner(current.squares);
-
+  const [winner, winningLine] = checkWinner(
+    current.moveIndex,
+    current.squares,
+    whosTurn(stepNumber-1) // whosTurn(stepNumber) determines who plays next so need to adjust
+  );
   return (
-    <div className="game">
-      <div className="status-box">
-        <Status
+    <div className={styling.Game}>
+      <div className={styling.statusbox}>
+        <ConnectfourStatus
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
           isDraw={stepNumber === rowCount * colCount}
         />
       </div>
-      <div className="reset-container">
-      <button className="reset" onClick={() => jumpTo(0)}>
-        RESET
-      </button>
+      <div className={styling.resetcontainer}>
+        <button className={styling.reset} onClick={() => jumpTo(0)}>
+          RESET
+        </button>
       </div>
-      <div className="game-board">
-        <Board
+      <div className={styling.gameboard}>
+        <ConnectfourBoard
           squares={current.squares}
           onClick={(i) => handleClick(i)}
           winningLine={winningLine}
@@ -40,8 +43,8 @@ export default function Tictactoe() {
           colCount={colCount}
         />
       </div>
-      <div className="game-info">
-        <History
+      <div className={styling.gameinfo}>
+        <ConnectfourHistory
           history={history}
           stepNumber={stepNumber}
           onClick={(stepNumber) => jumpTo(stepNumber)}
@@ -55,10 +58,11 @@ export default function Tictactoe() {
     const currentHistory = history.slice(0, stepNumber + 1);
     const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
-    const [winner] = calculateWinner(squares);
-    if (winner || squares[i]) {
+    i = dropCounter(i, squares);
+    if (winner || i === false) {
       return;
     }
+
     squares[i] = whosTurn(stepNumber);
 
     const newHistory = currentHistory.concat([
@@ -76,27 +80,7 @@ export default function Tictactoe() {
   }
 }
 
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], lines[i]];
-    }
-  }
-  return [null, []];
-}
-
 export function whosTurn(stepNumber) {
-  let player = stepNumber % 2 === 0 ? "X" : "O";
+  let player = stepNumber % 2 === 0 ? "Red" : "Yellow";
   return player;
 }

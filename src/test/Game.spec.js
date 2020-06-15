@@ -1,5 +1,5 @@
 import assert from "assert";
-import { whosTurn } from "../Tictactoe/Tictactoe";
+import { whosTurn } from "../Tictactoe/TictactoeGame";
 
 describe("whosTurn", () => {
   describe("whosTurn( /* no args */ )", () => {

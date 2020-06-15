@@ -6,7 +6,7 @@ import {
   getLine,
   checkLine,
   dropCounter,
-} from "../Connectfour/connectfour";
+} from "../Connectfour/ConnectfourRules";
 
 const rows = 6;
 const cols = 7;
@@ -59,78 +59,73 @@ describe("getLine(rowPos, colPos, rowStep,colStep) returns [potentialWinningLine
   });
 });
 
-describe("checkLine(potentialWinningLine) returns [winningLine] or [null]", () => {
-  test("checkLine([0, 1, 2, 3, 4, 5, 6]) returns [0, 1, 2, 3]", () => {
-    const squares = new Array(rows * cols).fill(null);
-    squares[0] = squares[1] = squares[2] = squares[3] = squares[4] = "playery"; //setting up winning line
-    expect(checkLine([0, 1, 2, 3, 4, 5, 6], squares)).toStrictEqual([
-      0,
-      1,
-      2,
-      3,
-    ]);
-  });
-  test("checkLine([14, 15, 16, 17, 18, 19, 20]) returns null", () => {
-    const squares = new Array(rows * cols).fill(null);
-    squares[1] = squares[8] = squares[15] = squares[22] = "playerx"; //setting up winning line
-    expect(checkLine([14, 15, 16, 17, 18, 19, 20], squares)).toStrictEqual([]);
-  });
-  test("checkLine([14, 15, 16, 17, 18, 19, 20]) returns 15, 16, 17, 18", () => {
-    const squares = new Array(rows * cols).fill(null);
-    squares[15] = squares[16] = squares[17] = squares[18] = "playerx"; //setting up winning line
-    expect(checkLine([14, 15, 16, 17, 18, 19, 20], squares)).toStrictEqual([
-      15,
-      16,
-      17,
-      18,
-    ]);
-  });
 
-  test("checkLine([35, 36, 37, 38, 39, 40, 41]) returns null", () => {
+describe("checkLine(potentialWinningLine) returns [winningLine] or [null]", () => {
+  test("checkLine(35,36,37,38,39,40,41) returns winning array when starting on player(R,R,R,R, , ,)", () => {
     const squares = new Array(rows * cols).fill(null);
-    squares[35] = squares[36] = squares[37] = squares[39] = "playerx"; //setting up winning line
-    expect(checkLine([35, 36, 37, 38, 39, 40, 41], squares)).toStrictEqual([]);
+    let player = "Red";
+    squares[35] = squares[36] = squares[37] = squares[38] = "Red";
+    squares[28] = squares[29] = squares[30] = squares[31] = "Yellow";
+    expect(
+      checkLine([35, 36, 37, 38, 39, 40, 41], squares, player)
+    ).toStrictEqual([35, 36, 37, 38]);
+  });
+  test("checkLine(35,36,37,38,39,40,41) returns winning array when starting on null( , ,R,R,R,R,)", () => {
+    const squares = new Array(rows * cols).fill(null);
+    let player = "Red";
+    squares[38] = squares[39] = squares[40] = squares[41] = "Red";
+    expect(
+      checkLine([35, 36, 37, 38, 39, 40, 41], squares, player)
+    ).toStrictEqual([38, 39, 40, 41]);
+  });
+  test("checkLine(35,36,37,38,39,40,41) returns null when starting on null(R,R,R, ,R, ,)", () => {
+    const squares = new Array(rows * cols).fill(null);
+    let player = "Red";
+    squares[35] = squares[36] = squares[37] = squares[39] = "Red";
+    expect(
+      checkLine([35, 36, 37, 38, 39, 40, 41], squares, player)
+    ).toStrictEqual([]);
   });
 });
 
+
 describe("checkWinner(lastClicked, squares) returns [winner,[winningLine]]", () => {
-  /*  test("checkWinner(1, squares) with winning line 0 to 3 returns ['playerx',[0, 1, 2, 3]]", () => {
+  test("checkWinner(1, squares) with winning line 0 to 3 returns ['playerx',[0, 1, 2, 3]]", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[1] = squares[2] = squares[3] = squares[0] = "playerx"; //setting up winning line
-    let [player, cells] = checkWinner(1, squares);
-    expect(player).toMatch("playerx");
+    let [expectedplayer, cells] = checkWinner(1, squares, "playerx");
+    expect(expectedplayer).toMatch("playerx");
     expect(cells).toStrictEqual([0, 1, 2, 3]);
   });
   test("checkWinner(15, squares) with winning col 1 down to 22 returns ['playerx',[1, 8, 15, 22]]", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[1] = squares[8] = squares[15] = squares[22] = "playerx"; //setting up winning line
-    let [player, cells] = checkWinner(15, squares);
-    expect(player).toMatch("playerx");
+    let [expectedplayer, cells] = checkWinner(15, squares, "playerx");
+    expect(expectedplayer).toMatch("playerx");
     expect(cells).toStrictEqual([1, 8, 15, 22]);
   });
   test("checkWinner(24, squares) with winning SE 8 down to 32 returns ['playerx',[8, 16, 24, 32]]", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[8] = squares[16] = squares[24] = squares[32] = "playerx"; //setting up winning line
-    let [player, cells] = checkWinner(24, squares);
-    expect(player).toMatch("playerx");
+    let [expectedplayer, cells] = checkWinner(24, squares, "playerx");
+    expect(expectedplayer).toMatch("playerx");
     expect(cells).toStrictEqual([8, 16, 24, 32]);
   });
   test("checkWinner(15, squares) with winning SW 6 down to 24 returns ['playerx',[6, 12, 18, 24]]", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[6] = squares[12] = squares[18] = squares[24] = "playerx"; //setting up winning line
-    let [player, cells] = checkWinner(24, squares);
-    expect(player).toMatch("playerx");
+    let [expectedplayer, cells] = checkWinner(24, squares, "playerx");
+    expect(expectedplayer).toMatch("playerx");
     expect(cells).toStrictEqual([6, 12, 18, 24]);
   });
-  */
+
   test("checkWinner(39, squares) with no winner returns null", () => {
     const squares = new Array(rows * cols).fill(null);
     squares[35] = squares[36] = squares[37] = squares[39] = "playerx"; //setting up winning line
-    expect(checkWinner(39, squares)).toStrictEqual([null, [null]]);
+    expect(checkWinner(39, squares, "playerx")).toStrictEqual([null, [null]]);
   });
 });
 
-/*
 test("dropCouter(0, squares) returns 35, if squares[35] is null", () => {
   const squares = new Array(rows * cols).fill(null);
   expect(dropCounter(0, squares)).toStrictEqual(35);
@@ -149,4 +144,4 @@ test("dropCouter(0, squares) returns false, if squares[0] is NOT null", () => {
   squares[0] = "playerx";
   expect(dropCounter(0, squares)).toStrictEqual(false);
 });
-*/
+

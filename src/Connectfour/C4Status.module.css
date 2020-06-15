@@ -1,4 +1,27 @@
-.status {
-    font-size: 5vmin;
-    margin-bottom:1vmin;
-  }
+* {
+  box-sizing: border-box;
+  font-size: 5vmin;
+  margin-bottom: 1vmin;
+}
+
+.statusbox {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+}
+
+.Red,
+.Yellow {
+  width: 7.5vmin;
+  height: 7.5vmin;
+  border-radius: 50%;
+  border: black solid;
+}
+
+.Red {
+  background-color: lightcoral;
+}
+
+.Yellow {
+  background-color: rgb(228, 201, 90);
+}

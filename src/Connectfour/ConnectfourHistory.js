@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { whosTurn } from "./C4";
+import { whosTurn } from "./ConnectfourGame";
 import styling from "./C4History.module.css";
 
-export function C4History({ history, stepNumber, onClick, colCount }) {
+export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
   const [, ...actualMoves] = history;
+  let toggle = "toggle";
 
   const moves = actualMoves.map((step, index) => {
     const i = index + 1;
@@ -25,14 +26,15 @@ export function C4History({ history, stepNumber, onClick, colCount }) {
   });
   if (reverse) {
     moves.reverse();
+    toggle = "togglereversed";
   }
 
   return (
     <>
-      <button className={styling.toggle} onClick={() => setReverse(!reverse)}>
+      <button className={styling[toggle]} onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
-      <ol reversed={reverse}>{moves}</ol>
+      <ul reversed={reverse}>{moves}</ul>
     </>
   );
 }
