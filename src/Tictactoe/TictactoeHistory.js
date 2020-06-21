@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { whosTurn } from "./TictactoeGame";
-import "./History.css";
+import styling from "./TictactoeHistory.module.css";
 
 export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
   const [reverse, setReverse] = useState(false);
   const [, ...actualMoves] = history;
+  let toggle = "toggle";
 
   const moves = actualMoves.map((step, index) => {
     const i = index + 1;
     var currentClass;
     if (stepNumber === i) {
-      currentClass = "history current";
+      currentClass = `${styling.history} ${styling.current}`;
     } else {
-      currentClass = "history";
+      currentClass = styling.history;
     }
     return (
       <li key={i}>
@@ -25,11 +26,12 @@ export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
   });
   if (reverse) {
     moves.reverse();
+    toggle="toggleReversed";
   }
 
   return (
     <>
-      <button className="toggle" onClick={() => setReverse(!reverse)}>
+      <button className={styling[toggle]} onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
       <ol reversed={reverse}>{moves}</ol>

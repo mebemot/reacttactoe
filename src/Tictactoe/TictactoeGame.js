@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TictactoeBoard } from "./TictactoeBoard";
 import { TictactoeStatus } from "./TictactoeStatus";
 import { TictactoeHistory } from "./TictactoeHistory";
-import "./Game.css";
+import styling from "./TictactoeGame.module.css";
 
 const initHistory = [{ squares: Array(9).fill(null) }];
 
@@ -17,8 +17,8 @@ export default function TictactoeGame() {
   const [winner, winningLine] = calculateWinner(current.squares);
 
   return (
-    <div className="game">
-      <div className="statusBox">
+    <div className={styling.game}>
+      <div className={styling.statusBox}>
         <TictactoeStatus
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
@@ -26,12 +26,12 @@ export default function TictactoeGame() {
           isDraw={stepNumber === rowCount * colCount}
         />
       </div>
-      <div className="resetContainer">
-      <button className="reset" onClick={() => jumpTo(0)}>
+      <div className={styling.resetContainer}>
+      <button className={styling.reset} onClick={() => jumpTo(0)}>
         RESET
       </button>
       </div>
-      <div className="gameBoard">
+      <div className={styling.gameBoard}>
         <TictactoeBoard
           squares={current.squares}
           onClick={(i) => handleClick(i)}
@@ -40,7 +40,7 @@ export default function TictactoeGame() {
           colCount={colCount}
         />
       </div>
-      <div className="gameInfo">
+      <div className={styling.gameInfo}>
         <TictactoeHistory
           history={history}
           stepNumber={stepNumber}

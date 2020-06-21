@@ -12,8 +12,8 @@
 
 .red,
 .yellow {
-  width: 7.5vmin;
-  height: 7.5vmin;
+  width: 6vmin;
+  height: 6vmin;
   border-radius: 50%;
   border: black solid;
 }

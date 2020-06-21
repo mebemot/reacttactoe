@@ -1,14 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
 .square {
   background: #fff;
   float: left;
   width: 20vmin;
   height: 20vmin;
   border: 1vmin solid rgb(0, 0, 0);
-  font-size: 20vmin;
+  font-size: 16vmin;
   font-weight: bold;
   line-height: 2vmin;
- margin-right: -1vmin;
-   margin-top: -1vmin;
+  margin-left: -1vmin;
+  margin-bottom: -1vmin;
   text-align: center;
 }
 
@@ -17,14 +21,14 @@
 }
 
 .winner {
-  background-color: aquamarine;
+  background-color: rgb(36, 215, 206);
 }
 
 .square:focus {
   outline: none;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 480px) {
   .square {
     float: left;
     width: 20vmin;

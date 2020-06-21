@@ -1,9 +1,9 @@
 import React from "react";
 import { TictactoeSquare } from "./TictactoeSquare";
-import "./Board.css";
+import styling from "./TictactoeBoard.module.css";
 
 export function TictactoeBoard({ squares, onClick, winningLine, rowCount, colCount }) {
-  return <div className="board">{renderSquares()}</div>;
+  return <div className={styling.board}>{renderSquares()}</div>;
 
   function renderSquares() {
     const cells = [];

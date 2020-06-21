@@ -18,6 +18,7 @@ export function ConnectfourBoard({ squares, onClick, winningLine, rowCount, colC
     return (
       <ConnectfourSquare
         key={i}
+        index={i}
         player={squares[i]}
         onClick={() => onClick(i)}
         winningSquare={winningLine.includes(i)}

@@ -1,28 +1,24 @@
-* {
+*{
   box-sizing: border-box;
 }
 
 ol,
 ul {
-  list-style: none;
+  font-size: 3vmin;
+  padding-left: 5vmin;
 }
 
 .history,
 .toggle,
 .toggleReversed {
   text-align: center;
-  margin-left: 40.25vmin;
+  margin-left: 39.5vmin;
   display: list-item;
   justify-content: space-evenly;
   background-color: aquamarine;
   border: 0.5vmin solid rgb(0, 0, 0);
   font-size: 3vmin;
   width: 19.5vmin;
-}
-
-li {
-  width: fit-content;
-  margin-left: -5vmin;
 }
 
 .history:focus,
@@ -35,24 +31,9 @@ li {
 .current {
   background-color: rgb(23, 142, 233);
 }
-.red,
-.yellow {
-  display: inline-flex;
-  float: left;
-  margin: 0vmin;
-  padding: 0vmin;
-  width: 3vmin;
-  height: 3vmin;
-  border-radius: 50%;
-  border: black solid 0.1vmin;
-}
 
-.red {
-  background-color: lightcoral;
-}
-
-.yellow {
-  background-color: rgb(228, 201, 90);
+.current {
+  background-color: rgb(23, 142, 233);
 }
 
 @media screen and (min-width: 480px) {
@@ -67,15 +48,5 @@ li {
     width: 19.5vmin;
     border: 0.5vmin solid black;
     font-size: 2vmin;
-  }
-
-  li{
-    margin-left: -3vmin;
-  }
-
-  .red,
-  .yellow {
-    width: 2vmin;
-    height: 2vmin;
   }
 }

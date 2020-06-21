@@ -13,12 +13,15 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
     if (stepNumber === i) {
       currentClass = `${styling.history} ${styling.current}`;
     } else {
-      currentClass = styling.history;
+      currentClass = `${styling.history}`;
     }
     return (
       <li key={i}>
-        <button className={currentClass} onClick={() => onClick(i)}>
-          {whosTurn(index)}({Math.floor(step.moveIndex / colCount) + 1},{" "}
+        <button className={currentClass} alt={`${whosTurn(index)} (
+          ${Math.floor(step.moveIndex / colCount) + 1},
+          ${(step.moveIndex % colCount) + 1})`} onClick={() => onClick(i)}>
+          <div className={styling[whosTurn(index)]}></div>(
+          {Math.floor(step.moveIndex / colCount) + 1},
           {(step.moveIndex % colCount) + 1})
         </button>
       </li>
@@ -31,10 +34,10 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
 
   return (
     <>
-      <button className={styling[toggle]} onClick={() => setReverse(!reverse)}>
+      <button className={styling[toggle]} alt="Ascending or descending order"onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
-      <ul reversed={reverse}>{moves}</ul>
+      <ol reversed={reverse}>{moves}</ol>
     </>
   );
 }

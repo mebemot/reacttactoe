@@ -58,7 +58,7 @@ export function getLine(rowPos, colPos, rowStep, colStep) {
 
 export function checkLine(potentialWinner, squares, player) {
   const reducer = (accumulator, currentValue) => {
-    if (squares[currentValue] === player) {
+    if (squares[currentValue] === player && accumulator.length < winningLineLength) {
       accumulator.push(currentValue);
     } else if (accumulator.length < winningLineLength) {
       accumulator = [];

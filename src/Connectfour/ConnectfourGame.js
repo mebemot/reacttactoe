@@ -3,7 +3,12 @@ import { ConnectfourBoard } from "./ConnectfourBoard";
 import { ConnectfourStatus } from "./ConnnectfourStatus";
 import { ConnectfourHistory } from "./ConnectfourHistory";
 import styling from "./ConnectfourGame.module.css";
-import { checkWinner, rowCount, colCount, dropCounter } from "./ConnectfourRules";
+import {
+  checkWinner,
+  rowCount,
+  colCount,
+  dropCounter,
+} from "./ConnectfourRules";
 
 const cellCount = rowCount * colCount;
 
@@ -17,7 +22,7 @@ export default function ConnectfourGame() {
   const [winner, winningLine] = checkWinner(
     current.moveIndex,
     current.squares,
-    whosTurn(stepNumber-1) // whosTurn(stepNumber) determines who plays next so need to adjust
+    whosTurn(stepNumber - 1) // whosTurn(stepNumber) determines who plays next so need to adjust
   );
   return (
     <div className={styling.game}>
@@ -30,7 +35,7 @@ export default function ConnectfourGame() {
         />
       </div>
       <div className={styling.resetContainer}>
-        <button className={styling.reset} onClick={() => jumpTo(0)}>
+        <button alt="reset" className={styling.reset} onClick={() => jumpTo(0)}>
           RESET
         </button>
       </div>
@@ -43,12 +48,14 @@ export default function ConnectfourGame() {
           colCount={colCount}
         />
       </div>
+       
       <div className={styling.gameInfo}>
         <ConnectfourHistory
           history={history}
           stepNumber={stepNumber}
           onClick={(stepNumber) => jumpTo(stepNumber)}
           colCount={colCount}
+          player={whosTurn(stepNumber-1)}
         />
       </div>
     </div>

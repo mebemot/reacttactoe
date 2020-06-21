@@ -1,5 +1,5 @@
 import React from "react";
-import "./Status.css"
+import styling from "./TictactoeStatus.module.css"
 
 export function TictactoeStatus({ winner, nextPlayer, isDraw }) {
   let status;
@@ -10,5 +10,5 @@ export function TictactoeStatus({ winner, nextPlayer, isDraw }) {
   } else {
     status = "Next player: " + nextPlayer;
   }
-  return <div className="status">{status}</div>;
+  return <div className={styling.status}>{status}</div>;
 }
