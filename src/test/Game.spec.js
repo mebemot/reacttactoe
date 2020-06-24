@@ -2,9 +2,6 @@ import assert from "assert";
 import { whosTurn } from "../tictactoe/TictactoeGame";
 
 describe("whosTurn", () => {
-  describe("whosTurn( /* no args */ )", () => {
-    test.todo("We should always check our params");
-  });
   describe("whosTurn(0)", () => {
     it('Should return "X" when called with move number "0" as "X" goes first', () => {
       assert.equal(whosTurn(0), "X");

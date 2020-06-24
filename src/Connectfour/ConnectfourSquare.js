@@ -6,7 +6,7 @@ export function ConnectfourSquare({ index, player, onClick, winningSquare }) {
     ? `${styling.square} ${styling[player]} ${styling.winner}`
     : `${styling.square} ${styling[player]}`;
   return (
-    <button alt={`${index}, ${player}`} className={squareClass} onClick={onClick}>
+    <button aria-label={`${player}`} className={squareClass} onClick={onClick}>
     </button>
   );
 }

@@ -39,7 +39,7 @@ export function findStart(index, rowStep, colStep) {
   let rowPos = currentRow,
     colPos = currentCol;
   for (
-    let i = 0;
+    let i = 1;
     i < winningLineLength && isInGrid(rowPos - rowStep, colPos - colStep); //checks rext row/col position is on grid
     ++i
   ) {

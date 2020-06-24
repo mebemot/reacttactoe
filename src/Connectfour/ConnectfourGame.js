@@ -35,7 +35,7 @@ export default function ConnectfourGame() {
         />
       </div>
       <div className={styling.resetContainer}>
-        <button alt="reset" className={styling.reset} onClick={() => jumpTo(0)}>
+        <button aria-label="Reset game" className={styling.reset} onClick={() => jumpTo(0)}>
           RESET
         </button>
       </div>

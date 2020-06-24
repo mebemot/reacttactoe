@@ -34,7 +34,7 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
 
   return (
     <>
-      <button className={styling[toggle]} alt="Ascending or descending order"onClick={() => setReverse(!reverse)}>
+      <button aria-label="Toggle move list order" className={styling[toggle]} onClick={() => setReverse(!reverse)}>
         /\ or \/
       </button>
       <ol reversed={reverse}>{moves}</ol>
