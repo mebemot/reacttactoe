@@ -6,13 +6,7 @@ import TictactoeGame from "./tictactoe/TictactoeGame";
 import ConnectfourGame from "./connectfour/ConnectfourGame";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-//export const BasketContext = React.createContext({
-//  BasketItems: [],
-//setBasketItems: (items) => {},
-//});
-
 export default function GamesApp() {
-  //  const [basketItems, setBasketItems] = useState([]);
   return (
     <Router>
       <div className={styling.app}>
