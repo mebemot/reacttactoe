@@ -2,8 +2,8 @@ import React from "react";
 import styling from "./GamesApp.module.css";
 import GamesHome from "./GamesHome";
 import GamesNav from "./GamesNav";
-import TictactoeGame from "./tictactoe/TictactoeGame";
 import ConnectfourGame from "./connectfour/ConnectfourGame";
+import TictactoeGame from "./tictactoe/TictactoeGame";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function GamesApp() {
