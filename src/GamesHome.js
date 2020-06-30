@@ -9,7 +9,7 @@ export default function GamesHome() {
           <header>
             <h2>Ticatactoe</h2>
           </header>
-          <img src="" alt="tictactoe" />
+
           <div>
             <p>letter game</p>
           </div>
@@ -18,7 +18,7 @@ export default function GamesHome() {
           <header>
             <h2>Connectfour</h2>
           </header>
-          <img src="" alt="connectfour" />
+
           <div>
             <p>counter game</p>
           </div>
