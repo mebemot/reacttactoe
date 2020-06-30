@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 3vmin;
+  outline: solid black 1vmin;
+}
+
+.card {
+  grid-template-rows: 20vmin;
+  outline: solid black 1vmin;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

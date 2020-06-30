@@ -1,5 +1,5 @@
 import React from "react";
-import "./GamesApp.css";
+import styling from "./GamesApp.module.css";
 import GamesHome from "./GamesHome";
 import GamesNav from "./GamesNav";
 import TictactoeGame from "./tictactoe/TictactoeGame";
@@ -15,7 +15,7 @@ export default function GamesApp() {
   //  const [basketItems, setBasketItems] = useState([]);
   return (
     <Router>
-      <div className="app">
+      <div className={styling.app}>
         <GamesNav />
 
         <Switch>

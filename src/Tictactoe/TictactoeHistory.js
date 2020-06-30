@@ -16,6 +16,7 @@ export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
       currentClass = styling.history;
     }
     return (
+      //button displaying (row, col) for the move made along with players counter
       <li key={i}>
         <button className={currentClass} onClick={() => onClick(i)}>
           {whosTurn(index)}({Math.floor(step.moveIndex / colCount) + 1},{" "}
@@ -26,7 +27,7 @@ export function TictactoeHistory({ history, stepNumber, onClick, colCount }) {
   });
   if (reverse) {
     moves.reverse();
-    toggle="toggleReversed";
+    toggle = "toggleReversed";
   }
 
   return (

@@ -7,6 +7,11 @@ ul {
   list-style: none;
 }
 
+.historyList {
+  max-height: 51vmin;
+  overflow-y: scroll;
+}
+
 .history,
 .toggle,
 .toggleReversed {
@@ -20,9 +25,8 @@ ul {
   width: 19.5vmin;
 }
 
-li {
-  width: fit-content;
-  margin-left: -5vmin;
+li .history {
+  margin-left: 35.25vmin;
 }
 
 .history:focus,
@@ -56,10 +60,14 @@ li {
 }
 
 @media screen and (min-width: 480px) {
-
   .toggle,
   .toggleReversed {
     margin: 2vmin;
+  }
+
+  .historyList {
+    max-height: 63vmin;
+    overflow-y: scroll;
   }
 
   .history {
@@ -69,7 +77,7 @@ li {
     font-size: 2vmin;
   }
 
-  li{
+  li .history {
     margin-left: -3vmin;
   }
 

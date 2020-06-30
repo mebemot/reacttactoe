@@ -60,7 +60,6 @@
 
   .gameInfo {
     margin-left: auto;
-    max-height: 60vmin;
   }
 
   .game {
@@ -72,6 +71,6 @@
     grid-template-areas:
       "status reset info"
       "board board info";
-    grid-template-columns: 40vmin repeat(2,1fr);
+    grid-template-columns: 40vmin repeat(2, 1fr);
   }
 }

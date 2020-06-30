@@ -9,17 +9,22 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
 
   const moves = actualMoves.map((step, index) => {
     const i = index + 1;
-    var currentClass;
+    let currentClass;
     if (stepNumber === i) {
       currentClass = `${styling.history} ${styling.current}`;
     } else {
       currentClass = `${styling.history}`;
     }
     return (
+      //button displaying (row, col) for the move made along with players counter
       <li key={i}>
-        <button className={currentClass} alt={`${whosTurn(index)} (
+        <button
+          className={currentClass}
+          aria-label={`${whosTurn(index)} (
           ${Math.floor(step.moveIndex / colCount) + 1},
-          ${(step.moveIndex % colCount) + 1})`} onClick={() => onClick(i)}>
+          ${(step.moveIndex % colCount) + 1})`}
+          onClick={() => onClick(i)}
+        >
           <div className={styling[whosTurn(index)]}></div>(
           {Math.floor(step.moveIndex / colCount) + 1},
           {(step.moveIndex % colCount) + 1})
@@ -34,10 +39,16 @@ export function ConnectfourHistory({ history, stepNumber, onClick, colCount }) {
 
   return (
     <>
-      <button aria-label="Toggle move list order" className={styling[toggle]} onClick={() => setReverse(!reverse)}>
+      <button
+        aria-label="Toggle move list order"
+        className={styling[toggle]}
+        onClick={() => setReverse(!reverse)}
+      >
         /\ or \/
       </button>
-      <ol reversed={reverse}>{moves}</ol>
+      <ol reversed={reverse} className={styling.historyList}>
+        {moves}
+      </ol>
     </>
   );
 }

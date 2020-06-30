@@ -1,5 +1,5 @@
 import React from "react";
-import styling from "./TictactoeStatus.module.css"
+import styling from "./TictactoeStatus.module.css";
 
 export function TictactoeStatus({ winner, nextPlayer, isDraw }) {
   let status;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./GamesApp.css";
+import styling from "./GamesNav.module.css";
 import { Link } from "react-router-dom";
 
 export default function GamesNav() {
@@ -7,21 +7,20 @@ export default function GamesNav() {
     color: "black",
   };
   return (
-    <nav className="nav">
-      <div className="drop">
+    <nav className={styling.nav}>
+      <div className={styling.drop}>
         <Link style={NavStyle} to="/">
-          <button className="dropButton">Games</button>
+          <div className={styling.dropButton}>Games</div>
         </Link>
-        <div className="dropContent">
+        <div className={styling.dropContent}>
           <Link style={NavStyle} to="/tictactoe">
-            <li className="link">Tictactoe</li>
+            <li className={styling.link}>Tictactoe</li>
           </Link>
           <Link style={NavStyle} to="/connectfour">
-            <li className="link">Connectfour</li>
+            <li className={styling.link}>Connectfour</li>
           </Link>
         </div>
       </div>
     </nav>
   );
 }
-

@@ -27,9 +27,9 @@ export default function TictactoeGame() {
         />
       </div>
       <div className={styling.resetContainer}>
-      <button className={styling.reset} onClick={() => jumpTo(0)}>
-        RESET
-      </button>
+        <button className={styling.reset} onClick={() => jumpTo(0)}>
+          RESET
+        </button>
       </div>
       <div className={styling.gameBoard}>
         <TictactoeBoard
@@ -51,6 +51,10 @@ export default function TictactoeGame() {
     </div>
   );
 
+  /**
+   * Determines what happens after each click, if a playable move the game updates accordingly
+   * @returns {void}
+   */
   function handleClick(i) {
     const currentHistory = history.slice(0, stepNumber + 1);
     const current = currentHistory[currentHistory.length - 1];
@@ -71,13 +75,17 @@ export default function TictactoeGame() {
     setStepNumber(currentHistory.length);
   }
 
+  /**
+   * changes to a previously made move determined by stepNumber
+   */
   function jumpTo(step) {
     setStepNumber(step);
   }
 }
 
+//checks indexs which correspond to the squares array against every possible winning combination, if they match returns winner and winningLines
 function calculateWinner(squares) {
-  const lines = [
+  const winningLines = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -87,15 +95,19 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+  for (let i = 0; i < winningLines.length; i++) {
+    const [a, b, c] = winningLines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], lines[i]];
+      return [squares[a], winningLines[i]];
     }
   }
   return [null, []];
 }
 
+/**
+ * updates player to who is about to make their move
+ * @returns {string} player
+ */
 export function whosTurn(stepNumber) {
   let player = stepNumber % 2 === 0 ? "X" : "O";
   return player;

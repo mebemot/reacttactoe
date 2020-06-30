@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -21,6 +21,10 @@ ul {
   width: 19.5vmin;
 }
 
+li .history {
+  margin-left: 34.5vmin;
+}
+
 .history:focus,
 .toggle:focus,
 .toggleReversed:focus {
@@ -37,7 +41,6 @@ ul {
 }
 
 @media screen and (min-width: 480px) {
-
   .toggle,
   .toggleReversed {
     margin: 2vmin;
@@ -48,5 +51,9 @@ ul {
     width: 19.5vmin;
     border: 0.5vmin solid black;
     font-size: 2vmin;
+  }
+
+  li .history {
+    margin-left: -3vmin;
   }
 }

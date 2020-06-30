@@ -1,11 +1,11 @@
 import React from "react";
-import "./GamesApp.css";
+import styling from "./GamesHome.module.css";
 
 export default function GamesHome() {
   return (
     <div>
-      <div className="cards">
-        <article className="card">
+      <div className={styling.cards}>
+        <article className={styling.card}>
           <header>
             <h2>Ticatactoe</h2>
           </header>
@@ -14,7 +14,7 @@ export default function GamesHome() {
             <p>letter game</p>
           </div>
         </article>
-        <article className="card">
+        <article className={styling.card}>
           <header>
             <h2>Connectfour</h2>
           </header>
@@ -27,4 +27,3 @@ export default function GamesHome() {
     </div>
   );
 }
-

@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.app {
+  text-align: center;
+  background-color: white;
+  width: 100%;
+}

@@ -1,20 +1,26 @@
 export const colCount = 7;
 export const rowCount = 6;
 export const winningLineLength = 4;
+
+/**
+ * checks for every possible winning line after each turn
+ * @returns {[number, [number]] | [null,[null]]} winning player and winning line, null if no winner
+ */
+
 export function checkWinner(lastClicked, squares, player) {
-  let winningLineCombos = [
+  let winningLineVectors = [
     { rowStep: 0, colStep: 1 },
     { rowStep: 1, colStep: 0 },
     { rowStep: 1, colStep: 1 },
     { rowStep: 1, colStep: -1 },
   ];
-  for (let { rowStep, colStep } of winningLineCombos) {
+  for (let { rowStep, colStep } of winningLineVectors) {
     // iterates over the array - performs loop for each element in it
     const [rowPos, colPos] = findStart(lastClicked, rowStep, colStep);
 
-    const potentialWinner = getLine(rowPos, colPos, rowStep, colStep);
+    const potentialWinningLine = getLine(rowPos, colPos, rowStep, colStep);
 
-    const winningLine = checkLine(potentialWinner, squares, player);
+    const winningLine = checkLine(potentialWinningLine, squares, player);
 
     if (winningLine.length >= winningLineLength) {
       return [squares[lastClicked], winningLine];
@@ -34,6 +40,11 @@ export function coordsToIndex(row, col) {
   return index;
 }
 
+/**
+ * works back to the start of a possible winning line
+ * @returns {[number, number]} coordinates (row position and col position) of line's start
+ */
+
 export function findStart(index, rowStep, colStep) {
   let [currentRow, currentCol] = indexToCoords(index);
   let rowPos = currentRow,
@@ -48,35 +59,52 @@ export function findStart(index, rowStep, colStep) {
   }
   return [rowPos, colPos];
 }
+
+/**
+ * fills an array with a potentially winning line
+ *@returns {Array<number>} potentially winning line
+ */
+
 export function getLine(rowPos, colPos, rowStep, colStep) {
-  var potentialWinner = [];
+  var potentialWinningLine = [];
   for (; isInGrid(rowPos, colPos); rowPos += rowStep, colPos += colStep) {
-    potentialWinner.push(coordsToIndex(rowPos, colPos)); //array of line to be checked
+    potentialWinningLine.push(coordsToIndex(rowPos, colPos)); //array of line to be checked
   }
-  return potentialWinner;
+  return potentialWinningLine;
 }
 
-export function checkLine(potentialWinner, squares, player) {
+/**
+ * matches contents from squares[] to the current player, if a consecutive match then added to a new array
+ * @returns {Array<number>} winningLine
+ */
+
+export function checkLine(potentialWinningLine, squares, player) {
   const reducer = (accumulator, currentValue) => {
-    if (squares[currentValue] === player && accumulator.length < winningLineLength) {
+    if (
+      squares[currentValue] === player &&
+      accumulator.length < winningLineLength
+    ) {
       accumulator.push(currentValue);
     } else if (accumulator.length < winningLineLength) {
       accumulator = [];
     }
     return accumulator;
   };
-  var winningLine = potentialWinner.reduce(reducer, []);
-   return winningLine;
+  var winningLine = potentialWinningLine.reduce(reducer, []);
+  return winningLine;
 }
 
 export function isInGrid(rowPos, colPos) {
   return rowPos < rowCount && rowPos >= 0 && colPos < colCount && colPos >= 0;
 }
 
+/**
+ * makes counter "drop" into correct square
+ * @returns {boolean | number} false if current column is full or index of where counter has dropped
+ */
 export function dropCounter(index, squares) {
   let [currentRow, currentCol] = indexToCoords(index);
   let dropRow = 0;
-  //return false if current column is full
   if (squares[coordsToIndex(dropRow, currentCol)]) {
     return false;
   }
