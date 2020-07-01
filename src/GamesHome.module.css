@@ -1,12 +1,72 @@
 * {
   box-sizing: border-box;
   text-decoration: none;
+  margin: none;
+  padding: none;
 }
 .cards {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+  margin: 0;
+  width: 98%;
+  border: 1px solid black;
+  height: 91vmax;
+  overflow-y: scroll;
+  display: inline-grid;
+  grid-template-areas:
+    "tictactoe"
+    "connectfour";
 }
 
-.card {
-  grid-template-rows: 20vmin;
+.tcard,
+.ccard {
+  width: 100%;
+  font-size: 2vmin;
+  height: 100%;
+  padding-top: 1vmin;
+  margin-top: -2vmin;
+}
+
+.tcard img,
+.ccard img {
+  max-width: 80%;
+}
+
+.tcard {
+  grid-area: "tictactoe";
+  background-color: lightcoral;
+}
+
+.tcard:hover {
+  background-color: coral;
+}
+
+.ccard {
+  grid-area: "connectfour";
+  background-color: rgba(255, 166, 0, 0.65);
+}
+.ccard:hover {
+  background-color: orange;
+}
+
+@media screen and (min-width: 480px) {
+  .cards {
+    margin-top: 1vmin;
+    overflow: hidden;
+    height: 85vmin;
+
+    width: 95%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards .tcard,
+  .cards .ccard {
+    margin: none;
+    padding-bottom: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .tcard img,
+  .ccard img {
+    width: 70%;
+  }
 }
