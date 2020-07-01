@@ -7,7 +7,7 @@
 .cards {
   margin: 0;
   width: 98%;
-  border: 1px solid black;
+
   height: 91vmax;
   overflow-y: scroll;
   display: inline-grid;
