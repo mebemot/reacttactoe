@@ -17,9 +17,6 @@ export default function GamesHome() {
               <h2>Tic-Tac-Toe</h2>
             </header>
             <img src={tictactoe} alt="Tic-Tac-Toe"></img>
-            <div>
-              <p>letter game</p>
-            </div>
           </article>
         </Link>
         <Link style={NavStyle} to="/connectfour">
@@ -28,9 +25,6 @@ export default function GamesHome() {
               <h2>Connect Four</h2>
             </header>
             <img src={connectfour} alt="Connect Four"></img>
-            <div>
-              <p>counter game</p>
-            </div>
           </article>
         </Link>
       </div>
