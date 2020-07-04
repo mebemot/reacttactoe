@@ -1,24 +1,23 @@
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-}
+@import "./colorScheme.css";
+
 .nav {
-  overflow: hidden;
-  min-height: 10vmin;
-  background-color: rgba(255, 166, 0, 0.65);
-  color: black;
+  height: 8vh;
+  background-color: var(--nav-bgcolor);
+  color: var(--nav-color);
+  margin-bottom: 3vh;
+  outline: 2vh solid var(--nav-select-bgcolor);
 }
 
 .drop .dropButton {
-  background-color: inherit;
+  background-color: var(--nav-select-bgcolor);
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   margin: 0;
+  padding: 0px;
   border: none;
   outline: none;
-  padding-top: 2vmin;
-  height: 10vmin;
+  height: 8vh;
   min-width: 20vmin;
 }
 .drop {
@@ -26,39 +25,40 @@
   overflow: hidden;
 }
 
-.drop:hover,
+.dropButton:hover,
+.dropButton:focus,
 .dropButton {
-  background-color: orange;
-  color: white;
+  color: var(--nav-select-color);
 }
 
 .dropContent {
   display: none;
   position: absolute;
-  background-color: white;
-  color: black;
+  background-color: var(--nav-drop-bgcolor);
+  color: var(--nav-drop-color);
   box-shadow: 0vmin 0.75vmin 2vmin 0vmin;
   z-index: 1;
 }
 
 .dropContent .link {
   text-decoration: none;
-  background-color: white;
-  color: rgb(0, 0, 0);
+  background-color: var(--nav-drop-bgcolor);
+  color: var(--nav-drop-color);
   display: inline-block;
   text-align: center;
   margin: 0;
-  padding: 0;
   padding-top: 2.5vmin;
   height: 10vmin;
   width: 100%;
 }
 
-.dropContent .link:hover {
-  background-color: orange;
-  color: white;
+.drop .link:hover,
+.drop .link:focus {
+  background-color: var(--nav-select-bgcolor);
+  color: var(--nav-select-color);
 }
 
-.drop:hover .dropContent {
+.drop:hover .dropContent,
+.drop:focus .dropContent {
   display: block;
 }

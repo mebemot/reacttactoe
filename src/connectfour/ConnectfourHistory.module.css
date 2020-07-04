@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+@import "../colorScheme.css";
 
 ol,
 ul {
@@ -19,7 +17,7 @@ ul {
   margin-left: 40.25vmin;
   display: list-item;
   justify-content: space-evenly;
-  background-color: aquamarine;
+  background-color: var(--history-color);
   border: 0.5vmin solid rgb(0, 0, 0);
   font-size: 3vmin;
   width: 19.5vmin;
@@ -33,11 +31,12 @@ li .history {
 .toggle:focus,
 .toggleReversed:focus {
   outline: none;
+  background-color: var(--history-select-color);
 }
 
 .toggleReversed,
 .current {
-  background-color: rgb(23, 142, 233);
+  background-color: var(--history-select-color);
 }
 .red,
 .yellow {
@@ -52,11 +51,11 @@ li .history {
 }
 
 .red {
-  background-color: lightcoral;
+  background-color: var(--red-counter);
 }
 
 .yellow {
-  background-color: rgb(228, 201, 90);
+  background-color: var(--yellow-counter);
 }
 
 @media screen and (min-width: 480px) {

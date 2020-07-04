@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { ConnectfourBoard } from "./ConnectfourBoard";
-import { ConnectfourStatus } from "./ConnnectfourStatus";
+import { ConnectfourStatus } from "./ConnectfourStatus";
 import { ConnectfourHistory } from "./ConnectfourHistory";
 import styling from "./ConnectfourGame.module.css";
 import {
   checkWinner,
-  rowCount,
-  colCount,
+  ROW_COUNT,
+  COL_COUNT,
   dropCounter,
 } from "./ConnectfourRules";
 
-const cellCount = rowCount * colCount;
+const CELL_COUNT = ROW_COUNT * COL_COUNT;
 
-const initHistory = [{ squares: Array(cellCount).fill(null), moveIndex: 0 }];
+const initHistory = [{ squares: Array(CELL_COUNT).fill(null), moveIndex: 0 }];
 
 export default function ConnectfourGame() {
   const [history, setHistory] = useState(initHistory);
@@ -31,14 +31,14 @@ export default function ConnectfourGame() {
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
-          isDraw={stepNumber === rowCount * colCount}
+          isDraw={stepNumber === ROW_COUNT * COL_COUNT}
         />
       </div>
       <div className={styling.resetContainer}>
         <button
           aria-label="Reset game"
           className={styling.reset}
-          onClick={() => jumpTo(0)}
+          onClick={() => setStepNumber(0)}
         >
           RESET
         </button>
@@ -46,10 +46,10 @@ export default function ConnectfourGame() {
       <div className={styling.gameBoard}>
         <ConnectfourBoard
           squares={current.squares}
-          onClick={(i) => handleClick(i)}
+          onClick={handleClick}
           winningLine={winningLine}
-          rowCount={rowCount}
-          colCount={colCount}
+          rowCount={ROW_COUNT}
+          colCount={COL_COUNT}
         />
       </div>
        
@@ -57,8 +57,8 @@ export default function ConnectfourGame() {
         <ConnectfourHistory
           history={history}
           stepNumber={stepNumber}
-          onClick={(stepNumber) => jumpTo(stepNumber)}
-          colCount={colCount}
+          onClick={setStepNumber}
+          colCount={COL_COUNT}
           player={whosTurn(stepNumber - 1)}
         />
       </div>
@@ -89,13 +89,6 @@ export default function ConnectfourGame() {
     ]);
     setHistory(newHistory);
     setStepNumber(currentHistory.length);
-  }
-
-  /**
-   * changes to a previously made move determined by stepNumber
-   */
-  function jumpTo(step) {
-    setStepNumber(step);
   }
 }
 

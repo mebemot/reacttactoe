@@ -7,8 +7,8 @@ import styling from "./TictactoeGame.module.css";
 const initHistory = [{ squares: Array(9).fill(null) }];
 
 export default function TictactoeGame() {
-  const rowCount = 3;
-  const colCount = 3;
+  const ROW_COUNT = 3;
+  const COL_COUNT = 3;
 
   const [history, setHistory] = useState(initHistory);
   const [stepNumber, setStepNumber] = useState(0);
@@ -23,29 +23,29 @@ export default function TictactoeGame() {
           winner={winner}
           nextPlayer={whosTurn(stepNumber)}
           stepNumber={stepNumber}
-          isDraw={stepNumber === rowCount * colCount}
+          isDraw={stepNumber === ROW_COUNT * COL_COUNT}
         />
       </div>
       <div className={styling.resetContainer}>
-        <button className={styling.reset} onClick={() => jumpTo(0)}>
+        <button className={styling.reset} onClick={() => setStepNumber(0)}>
           RESET
         </button>
       </div>
       <div className={styling.gameBoard}>
         <TictactoeBoard
           squares={current.squares}
-          onClick={(i) => handleClick(i)}
+          onClick={handleClick}
           winningLine={winningLine}
-          rowCount={rowCount}
-          colCount={colCount}
+          rowCount={ROW_COUNT}
+          colCount={COL_COUNT}
         />
       </div>
       <div className={styling.gameInfo}>
         <TictactoeHistory
           history={history}
           stepNumber={stepNumber}
-          onClick={(stepNumber) => jumpTo(stepNumber)}
-          colCount={colCount}
+          onClick={setStepNumber}
+          colCount={COL_COUNT}
         />
       </div>
     </div>
@@ -74,16 +74,13 @@ export default function TictactoeGame() {
     setHistory(newHistory);
     setStepNumber(currentHistory.length);
   }
-
-  /**
-   * changes to a previously made move determined by stepNumber
-   */
-  function jumpTo(step) {
-    setStepNumber(step);
-  }
 }
 
-//checks indexs which correspond to the squares array against every possible winning combination, if they match returns winner and winningLines
+/**
+ * checks indexs which correspond to the squares array against every possible winning combination
+ * if they match
+ * @returns {[string, Array<number>]} winner and winningLines
+ */
 function calculateWinner(squares) {
   const winningLines = [
     [0, 1, 2],

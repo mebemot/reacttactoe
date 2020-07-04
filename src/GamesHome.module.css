@@ -1,71 +1,70 @@
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-  margin: none;
-  padding: none;
-}
+@import "./colorScheme.css";
+
 .cards {
   margin: 0;
   width: 100%;
-  height: 90vmax;
+  height: 89.1vh;
   overflow-y: scroll;
-  display: inline-grid;
+  display: grid;
   grid-template-areas:
-    "tictactoe"
-    "connectfour";
+    "card1"
+    "card2";
+  grid-template-rows: repeat(2, 60vh);
 }
 
-.tcard,
-.ccard {
+.cards .card1,
+.cards .card2 {
   width: 100%;
   font-size: 2vmin;
   height: 100%;
   padding-top: 1vmin;
-  margin-top: -2vmin;
 }
 
-.tcard img,
-.ccard img {
-  max-width: 80%;
+.card1 img,
+.card2 img {
+  max-width: 70%;
 }
 
-.tcard {
-  grid-area: "tictactoe";
-  background-color: lightcoral;
+.card1 {
+  grid-area: "card1";
+  background-color: var(--card1-bgcolor);
+  color: black;
 }
 
-.tcard:hover {
-  background-color: coral;
+.card1:hover,
+.cards .card1:focus {
+  background-color: var(--card1-select-bgcolor);
+  outline: none;
 }
 
-.ccard {
-  grid-area: "connectfour";
-  background-color: rgba(255, 166, 0, 0.65);
+.card2 {
+  grid-area: "card2";
+  background-color: var(--card2-bgcolor);
+  color: black;
 }
-.ccard:hover {
-  background-color: orange;
+.card2:hover,
+.cards .card2:focus {
+  background-color: var(--card2-select-bgcolor);
+  outline: none;
 }
 
 @media screen and (min-width: 480px) {
   .cards {
-    margin-top: 1vmin;
+    margin-top: 1vh;
     overflow: hidden;
-    height: 85vmin;
-
-    width: 100%;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .cards .tcard,
-  .cards .ccard {
-    margin: none;
-    padding-bottom: 100%;
+  .cards .card1,
+  .cards .card2 {
+    margin: 0px;
+    padding-bottom: 90vh;
     height: 100%;
     width: 100%;
   }
 
-  .tcard img,
-  .ccard img {
+  .card1 img,
+  .card2 img {
     width: 65%;
   }
 }

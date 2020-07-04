@@ -3,21 +3,20 @@ import styling from "./GamesNav.module.css";
 import { Link } from "react-router-dom";
 
 export default function GamesNav() {
-  const NavStyle = {
-    color: "black",
-  };
   return (
     <nav className={styling.nav}>
       <div className={styling.drop}>
-        <Link style={NavStyle} to="/">
-          <div className={styling.dropButton}>Games</div>
+        <Link className={styling.dropButton} to="/">
+          <button tabIndex="-1" className={styling.dropButton}>
+            Games
+          </button>
         </Link>
         <div className={styling.dropContent}>
-          <Link style={NavStyle} to="/tictactoe">
-            <li className={styling.link}>Tictactoe</li>
+          <Link className={styling.link} to="/tictactoe">
+            Tic-Tac-Toe
           </Link>
-          <Link style={NavStyle} to="/connectfour">
-            <li className={styling.link}>Connectfour</li>
+          <Link className={styling.link} to="/connectfour">
+            Connect Four
           </Link>
         </div>
       </div>

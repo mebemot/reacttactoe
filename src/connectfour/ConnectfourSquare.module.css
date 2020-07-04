@@ -1,3 +1,5 @@
+@import "../colorScheme.css";
+
 .square {
   display: inline;
   border-radius: 50%;
@@ -7,14 +9,15 @@
   text-align: center;
 }
 .red {
-  background-color: lightcoral;
+  background-color: var(--red-counter);
 }
 
 .yellow {
-  background-color: rgb(228, 201, 90);
+  background-color: var(--yellow-counter);
 }
 
-.square:hover {
+.square:hover,
+.square:focus {
   border: dashed 0.5vmin lightseagreen;
 }
 
@@ -25,4 +28,3 @@
 .square:focus {
   outline: none;
 }
-

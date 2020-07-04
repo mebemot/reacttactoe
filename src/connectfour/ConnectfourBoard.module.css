@@ -1,17 +1,19 @@
+@import "../colorScheme.css";
+
 .board {
   display: inline-grid;
   grid-template-columns: repeat(7, 12vmin);
   grid-template-rows: repeat(6, 12vmin);
-  background-color: rgb(36, 215, 206);
-  border: lightseagreen solid 1.5vmin;
+  background-color: var(--first-game-color);
+  border: 0.75vmin solid var(--second-game-color);
 }
 
 .red {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: lightseagreen solid 0.1vmin;
-  background-color: lightcoral;
+  border: var(--second-game-color);
+  background-color: var(--red-counter);
   z-index: 10;
 }
 
@@ -19,14 +21,14 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: lightseagreen solid 0.1vmin;
-  background-color: rgb(228, 201, 90);
+  border: var(--second-game-color);
+  background-color: var(--yellow-counter);
   z-index: 10;
 }
 
 @media screen and (min-width: 480px) {
-  .board{
+  .board {
     grid-template-columns: repeat(7, 10vmin);
-  grid-template-rows: repeat(6, 10vmin);
+    grid-template-rows: repeat(6, 10vmin);
   }
 }

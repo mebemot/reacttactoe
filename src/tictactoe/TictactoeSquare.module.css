@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+@import "../colorScheme.css";
 
 .square {
   background: #fff;
@@ -16,16 +14,14 @@
   text-align: center;
 }
 
-.square:hover {
-  background-color: aquamarine;
+.square:hover,
+.square:focus {
+  background-color: var(--third-game-color);
+  outline: none;
 }
 
 .winner {
-  background-color: rgb(36, 215, 206);
-}
-
-.square:focus {
-  outline: none;
+  background-color: var(--first-game-color);
 }
 
 @media screen and (min-width: 480px) {

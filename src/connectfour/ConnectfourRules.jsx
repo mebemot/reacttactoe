@@ -1,6 +1,6 @@
-export const colCount = 7;
-export const rowCount = 6;
-export const winningLineLength = 4;
+export const COL_COUNT = 7;
+export const ROW_COUNT = 6;
+export const WINNING_LINE_LENGTH = 4;
 
 /**
  * checks for every possible winning line after each turn
@@ -22,7 +22,7 @@ export function checkWinner(lastClicked, squares, player) {
 
     const winningLine = checkLine(potentialWinningLine, squares, player);
 
-    if (winningLine.length >= winningLineLength) {
+    if (winningLine.length >= WINNING_LINE_LENGTH) {
       return [squares[lastClicked], winningLine];
     }
   }
@@ -30,13 +30,13 @@ export function checkWinner(lastClicked, squares, player) {
 }
 
 export function indexToCoords(index) {
-  let col = index % colCount;
-  let row = Math.floor(index / colCount);
+  let col = index % COL_COUNT;
+  let row = Math.floor(index / COL_COUNT);
   return [row, col];
 }
 
 export function coordsToIndex(row, col) {
-  let index = row * colCount + col;
+  let index = row * COL_COUNT + col;
   return index;
 }
 
@@ -51,7 +51,7 @@ export function findStart(index, rowStep, colStep) {
     colPos = currentCol;
   for (
     let i = 1;
-    i < winningLineLength && isInGrid(rowPos - rowStep, colPos - colStep); //checks rext row/col position is on grid
+    i < WINNING_LINE_LENGTH && isInGrid(rowPos - rowStep, colPos - colStep); //checks rext row/col position is on grid
     ++i
   ) {
     rowPos -= rowStep;
@@ -82,10 +82,10 @@ export function checkLine(potentialWinningLine, squares, player) {
   const reducer = (accumulator, currentValue) => {
     if (
       squares[currentValue] === player &&
-      accumulator.length < winningLineLength
+      accumulator.length < WINNING_LINE_LENGTH
     ) {
       accumulator.push(currentValue);
-    } else if (accumulator.length < winningLineLength) {
+    } else if (accumulator.length < WINNING_LINE_LENGTH) {
       accumulator = [];
     }
     return accumulator;
@@ -95,7 +95,7 @@ export function checkLine(potentialWinningLine, squares, player) {
 }
 
 export function isInGrid(rowPos, colPos) {
-  return rowPos < rowCount && rowPos >= 0 && colPos < colCount && colPos >= 0;
+  return rowPos < ROW_COUNT && rowPos >= 0 && colPos < COL_COUNT && colPos >= 0;
 }
 
 /**
@@ -110,7 +110,7 @@ export function dropCounter(index, squares) {
   }
   //drop down column until find counter or bottom of grid
   while (
-    dropRow < rowCount &&
+    dropRow < ROW_COUNT &&
     squares[coordsToIndex(dropRow, currentCol)] === null
   ) {
     ++dropRow;

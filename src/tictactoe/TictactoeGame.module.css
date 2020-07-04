@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+@import "../colorScheme.css";
 
 .gameInfo {
   display: inline-block;
@@ -20,7 +18,7 @@
   position: static;
 }
 .reset {
-  background-color: aquamarine;
+  background-color: var(--history-color);
   border: 0.5vmin solid rgb(0, 0, 0);
   font-size: 3vmin;
   font-weight: bolder;
@@ -31,7 +29,7 @@
 
 .reset:focus {
   outline: none;
-  background-color: rgb(23, 142, 233);
+  background-color: var(--history-select-color);
 }
 
 .resetContainer {
@@ -74,6 +72,6 @@
     grid-template-areas:
       "status reset info"
       "board board info";
-    grid-template-columns: 33.5vmin repeat(2,1fr);
+    grid-template-columns: 33.5vmin repeat(2, 1fr);
   }
 }

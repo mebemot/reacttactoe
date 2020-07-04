@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+@import "../colorScheme.css";
 
 .gameInfo {
   display: inline;
@@ -19,7 +17,7 @@
   position: static;
 }
 .reset {
-  background-color: aquamarine;
+  background-color: var(--history-color);
   border: 0.5vmin solid rgb(0, 0, 0);
   font-size: 3vmin;
   font-weight: bolder;
@@ -30,7 +28,7 @@
 
 .reset:focus {
   outline: none;
-  background-color: rgb(23, 142, 233);
+  background-color: var(--history-select-color);
 }
 
 .resetContainer {
