@@ -1,0 +1,88 @@
+@import "../colorScheme.css";
+
+ol,
+ul {
+  list-style: none;
+}
+
+.historyList {
+  max-height: 51vmin;
+  overflow-y: scroll;
+}
+
+.history,
+.toggle,
+.toggleReversed {
+  text-align: center;
+  margin-left: 40.25vmin;
+  display: list-item;
+  justify-content: space-evenly;
+  background-color: var(--history-color);
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  width: 19.5vmin;
+}
+
+li .history {
+  margin-left: 35.25vmin;
+}
+
+.history:focus,
+.toggle:focus,
+.toggleReversed:focus {
+  outline: none;
+  background-color: var(--history-select-color);
+}
+
+.toggleReversed,
+.current {
+  background-color: var(--history-select-color);
+}
+.red,
+.yellow {
+  display: inline-flex;
+  float: left;
+  margin: 0vmin;
+  padding: 0vmin;
+  width: 3vmin;
+  height: 3vmin;
+  border-radius: 50%;
+  border: black solid 0.1vmin;
+}
+
+.red {
+  background-color: var(--red-counter);
+}
+
+.yellow {
+  background-color: var(--yellow-counter);
+}
+
+@media screen and (min-width: 480px) {
+  .toggle,
+  .toggleReversed {
+    margin: 2vmin;
+  }
+
+  .historyList {
+    max-height: 63vmin;
+    overflow-y: scroll;
+  }
+
+  .history {
+    margin: auto;
+    width: 19.5vmin;
+    border: 0.5vmin solid black;
+    font-size: 2vmin;
+  }
+
+  li .history {
+    margin-left: -3vmin;
+  }
+
+  .red,
+  .yellow {
+    width: 2vmin;
+    height: 2vmin;
+  }
+}

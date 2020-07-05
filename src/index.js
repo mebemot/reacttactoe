@@ -1,12 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css'
-import { Game } from './Game';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import GamesApp from "./GamesApp";
+import * as serviceWorker from "./serviceWorker";
 
-  
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-  );
-  
-  
+ReactDOM.render(<GamesApp />, document.getElementById("root"));
+serviceWorker.register();

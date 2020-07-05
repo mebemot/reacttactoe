@@ -1,0 +1,54 @@
+@import "../colorScheme.css";
+
+ol,
+ul {
+  font-size: 3vmin;
+  padding-left: 5vmin;
+}
+
+.history,
+.toggle,
+.toggleReversed {
+  text-align: center;
+  margin-left: 39.5vmin;
+  display: list-item;
+  justify-content: space-evenly;
+  background-color: var(--history-color);
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  width: 19.5vmin;
+}
+
+li .history {
+  margin-left: 34.5vmin;
+}
+
+.history:focus,
+.toggle:focus,
+.toggleReversed:focus {
+  background-color: var(--history-select-color);
+  outline: none;
+}
+
+.toggleReversed,
+.current {
+  background-color: var(--history-select-color);
+}
+
+@media screen and (min-width: 480px) {
+  .toggle,
+  .toggleReversed {
+    margin: 2vmin;
+  }
+
+  .history {
+    margin: auto;
+    width: 19.5vmin;
+    border: 0.5vmin solid black;
+    font-size: 2vmin;
+  }
+
+  li .history {
+    margin-left: -3vmin;
+  }
+}

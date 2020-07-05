@@ -1,0 +1,77 @@
+@import "../colorScheme.css";
+
+.gameInfo {
+  display: inline-block;
+  width: 100%;
+  grid-area: info;
+}
+.statusBox {
+  grid-area: status;
+  display: inline-block;
+  width: 100%;
+  position: static;
+}
+
+.gameBoard {
+  grid-area: board;
+  display: inline-block;
+  position: static;
+}
+.reset {
+  background-color: var(--history-color);
+  border: 0.5vmin solid rgb(0, 0, 0);
+  font-size: 3vmin;
+  font-weight: bolder;
+  text-align: center;
+  width: 19.5vmin;
+  margin: 2vmin;
+}
+
+.reset:focus {
+  outline: none;
+  background-color: var(--history-select-color);
+}
+
+.resetContainer {
+  grid-area: reset;
+  display: inline-block;
+  width: 100%;
+}
+.game {
+  display: inline-block;
+  text-align: center;
+  grid-template-areas:
+    "status"
+    "reset"
+    "board"
+    "info";
+}
+
+@media screen and (min-width: 480px) {
+  .statusBox {
+    width: fit-content;
+    display: inline-block;
+  }
+
+  .resetContainer {
+    width: fit-content;
+    display: inline-block;
+  }
+
+  .gameInfo {
+    margin-left: auto;
+    max-height: 60vmin;
+  }
+
+  .game {
+    margin-left: 5vmin;
+    margin-top: 2vmin;
+    max-width: fit-content;
+    display: grid;
+    text-align: left;
+    grid-template-areas:
+      "status reset info"
+      "board board info";
+    grid-template-columns: 33.5vmin repeat(2, 1fr);
+  }
+}

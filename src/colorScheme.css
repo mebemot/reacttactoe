@@ -1,0 +1,28 @@
+:root {
+  --first-color: rgb(255, 223, 94);
+  --second-color: lightcoral;
+
+  --nav-bgcolor: var(--first-color);
+  --nav-color: black;
+  --nav-select-bgcolor: rgb(255, 204, 0);
+  --nav-select-color: white;
+  --nav-drop-bgcolor: white;
+  --nav-drop-color: black;
+
+  --card1-bgcolor: var(--second-color);
+  --card1-color: var(--first-color);
+  --card1-select-bgcolor: coral;
+  --card2-bgcolor: var(--first-color);
+  --card2-color: var(--second-color);
+  --card2-select-bgcolor: rgb(255, 204, 0);
+
+  --history-color: aquamarine;
+  --history-select-color: rgb(23, 142, 233);
+
+  --first-game-color: rgb(36, 215, 206);
+  --second-game-color: lightseagreen;
+  --third-game-color: aquamarine;
+
+  --red-counter: lightcoral;
+  --yellow-counter: rgba(255, 204, 0, 0.899);
+}

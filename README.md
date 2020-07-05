@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tic-Tac-Toe and Connect Four
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The project is a way to explore the react framework and the languages it uses whilst learning and sticking to good practices. A playable Tic-Tac-Toe game and Connect Four game are playable on the same PWA. There is also a navbar that has drop down links to navigate between pages. The PWA was deployed using AWS and so is useable offline.<br />
+it can viewed and downloaded from https://improvements-from-react.d2fcfr3e9w6oci.amplifyapp.com/
 
 ## Available Scripts
 
@@ -66,3 +69,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Authors
+
+- Tom Lepard

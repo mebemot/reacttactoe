@@ -1,0 +1,39 @@
+@import "../colorScheme.css";
+
+.square {
+  background: #fff;
+  float: left;
+  width: 20vmin;
+  height: 20vmin;
+  border: 1vmin solid rgb(0, 0, 0);
+  font-size: 16vmin;
+  font-weight: bold;
+  line-height: 2vmin;
+  margin-left: -1vmin;
+  margin-bottom: -1vmin;
+  text-align: center;
+}
+
+.square:hover,
+.square:focus {
+  background-color: var(--third-game-color);
+  outline: none;
+}
+
+.winner {
+  background-color: var(--first-game-color);
+}
+
+@media screen and (min-width: 480px) {
+  .square {
+    float: left;
+    width: 20vmin;
+    height: 20vmin;
+    border: 1vmin solid rgb(0, 0, 0);
+    font-size: 20vmin;
+    font-weight: bold;
+    line-height: 2vmin;
+    margin-right: -1vmin;
+    margin-top: -1vmin;
+  }
+}

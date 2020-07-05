@@ -1,0 +1,28 @@
+@import "../colorScheme.css";
+
+* {
+  font-size: 5vmin;
+  margin-bottom: 1vmin;
+}
+
+.statusBox {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+}
+
+.red,
+.yellow {
+  width: 6vmin;
+  height: 6vmin;
+  border-radius: 50%;
+  border: black solid;
+}
+
+.red {
+  background-color: var(--red-counter);
+}
+
+.yellow {
+  background-color: var(--yellow-counter);
+}
